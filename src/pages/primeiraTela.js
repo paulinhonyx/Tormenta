@@ -2,12 +2,6 @@ import React, { Component } from "react";
 import { View } from "react-native";
 import {
   Appbar,
-  TextInput,
-  HelperText,
-  Button,
-  Dialog,
-  Portal,
-  Paragraph
 } from "react-native-paper";
 
 import styles from "./styles";
