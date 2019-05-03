@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { View } from "react-native";
-import {
-  Appbar,
-} from "react-native-paper";
+import { Appbar, TextInput } from "react-native-paper";
 
 import styles from "./styles";
 
@@ -10,9 +8,7 @@ export default class Principal extends Component {
   static navigationOptions = ({ navigation }) => ({
     header: null
   });
-  state = {
-    
-  };
+  state = {};
   render() {
     return (
       <View>
@@ -20,7 +16,6 @@ export default class Principal extends Component {
           <Appbar.BackAction onPress={() => this.props.navigation.pop()} />
           <Appbar.Content title="Principal" />
         </Appbar.Header>
-        
       </View>
     );
   }
