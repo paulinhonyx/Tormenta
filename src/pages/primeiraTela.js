@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { View } from "react-native";
-import { Appbar, TextInput } from "react-native-paper";
+import { View, Text } from "react-native";
+import { Appbar, } from "react-native-paper";
 
 import styles from "./styles";
 
