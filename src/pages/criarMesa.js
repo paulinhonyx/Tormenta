@@ -19,24 +19,26 @@ export default class cirarMesa extends Component {
         <View>
           <TextInput
             label="Nome"
-            style={styles.textContainer}
+            style={styles.textContainer2}
             value={this.state.nomeMesa}
             onChangeText={nomeMesa => this.setState({ nomeMesa })}
           />
           <TextInput
             label="Senha"
-            style={styles.textContainer}
+            style={styles.textContainer2}
             value={this.state.senha}
             onChangeText={senha => this.setState({ senha })}
             secureTextEntry
           />
           <TextInput
             label="Convidar Jogadores"
-            style={styles.textContainer}
+            style={styles.textContainer2}
             value={this.state.jogadores}
             onChangeText={jogadores => this.setState({ jogadores })}
           />
-          <Text>Selecione o Mundo:</Text>
+          <Text style={{ marginLeft: 20, marginTop: 20, fontSize: 16 }}>
+            Selecione o Mundo:
+          </Text>
           <View style={styles.piker2}>
             <Picker
               selectedValue={this.state.language}
@@ -52,7 +54,6 @@ export default class cirarMesa extends Component {
               <Picker.Item label="Tormenta5" value="Tormenta5" />
             </Picker>
           </View>
-          
         </View>
       </ScrollView>
     );

@@ -13,6 +13,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff"
   },
 
+  textContainer2: {
+    marginTop: 15,
+    width: 300,
+    marginLeft: 20,
+    backgroundColor: "#fff"
+  },
+
   entrar: {
     width: 200,
     height: 50,
@@ -95,7 +102,8 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderColor: "#ccc",
     height: 50,
-    width: 200
+    width: 200,
+    marginLeft: 20,
   }
 });
 
