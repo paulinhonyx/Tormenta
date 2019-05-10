@@ -6,14 +6,7 @@ const styles = StyleSheet.create({
     marginTop: 10
   },
 
-  username: {
-    marginTop: 15,
-    width: 300,
-    alignSelf: "center",
-    backgroundColor: "#fff"
-  },
-
-  senha: {
+  textContainer: {
     marginTop: 15,
     width: 300,
     alignSelf: "center",
@@ -37,9 +30,42 @@ const styles = StyleSheet.create({
     marginTop: 20,
     backgroundColor: "#da552f"
   },
+
   header: {
     backgroundColor: "#da552f"
   },
+
+  homeContainer: {
+    width: 200,
+    height: 65,
+    flexDirection: "column",
+    justifyContent: "space-around",
+    alignSelf: "center",
+    marginTop: 100,
+    backgroundColor: "#0066cc"
+  },
+
+  erroText: {
+    marginLeft: 30
+  },
+
+  viewName: {
+    flexDirection: "row"
+  },
+
+  perfil: {
+    alignSelf: "center"
+  },
+
+  viewName2: {
+    width: 50,
+    height: 50
+  },
+
+  card: {
+    backgroundColor: "#ccc",
+    flexDirection: "row"
+  }
 });
 
 export default styles;

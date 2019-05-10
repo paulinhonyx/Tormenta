@@ -1,13 +1,8 @@
 import React, { Component } from "react";
 import { Image, View } from "react-native";
-import {
-  Provider as PaperProvider,
-  TextInput,
-  Button,
-  Appbar
-} from "react-native-paper";
+import { TextInput, Button, Appbar } from "react-native-paper";
 
-import styles from "./styles";
+import styles from "../config/styles";
 
 export default class Main extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -31,13 +26,13 @@ export default class Main extends Component {
         />
         <TextInput
           label="Login"
-          style={styles.username}
+          style={styles.textContainer}
           value={this.state.usuario}
           onChangeText={usuario => this.setState({ usuario })}
         />
         <TextInput
           label="Senha"
-          style={styles.senha}
+          style={styles.textContainer}
           value={this.state.senha}
           onChangeText={senha => this.setState({ senha })}
           secureTextEntry={true}
@@ -45,7 +40,7 @@ export default class Main extends Component {
         <Button
           style={styles.entrar}
           mode="contained"
-          onPress={() => this.props.navigation.navigate("Principal")}
+          onPress={() => this.props.navigation.navigate("Home")}
         >
           Entrar
         </Button>
