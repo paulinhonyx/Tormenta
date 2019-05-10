@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, ScrollView, Text, Picker } from "react-native";
-import { Appbar, TextInput, RadioButton } from "react-native-paper";
+import { Appbar, TextInput, Button, Portal, Dialog, Paragraph } from "react-native-paper";
 
 import styles from "../config/styles";
 
@@ -8,7 +8,13 @@ export default class cirarMesa extends Component {
   static navigationOptions = ({ navigation }) => ({
     header: null
   });
-  state = {};
+  state = {
+    nomeMesa: "",
+    senha: "",
+    jogadores: "",
+    mundo: null,
+    visible: false
+  };
   render() {
     return (
       <ScrollView>
@@ -41,7 +47,7 @@ export default class cirarMesa extends Component {
           </Text>
           <View style={styles.piker2}>
             <Picker
-              selectedValue={this.state.language}
+              selectedValue={this.state.mundo}
               style={styles.piker}
               onValueChange={(itemValue, itemIndex) =>
                 this.setState({ language: itemValue })
@@ -53,6 +59,29 @@ export default class cirarMesa extends Component {
               <Picker.Item label="Tormenta4" value="Tormenta4" />
               <Picker.Item label="Tormenta5" value="Tormenta5" />
             </Picker>
+          </View>
+          <View>
+            <Button
+              style={styles.entrar}
+              mode="contained"
+              onPress={() => this.setState({visible:"true"})}
+            >
+              Criar
+            </Button>
+            <Portal>
+              <Dialog visible={this.state.visible} onDismiss={this._hideDialog}>
+                <Dialog.Content>
+                  <Paragraph>Mesa criada com sucesso!</Paragraph>
+                </Dialog.Content>
+                <Dialog.Actions>
+                  <Button
+                    onPress={() => this.props.navigation.navigate("Home")}
+                  >
+                    Done
+                  </Button>
+                </Dialog.Actions>
+              </Dialog>
+            </Portal>
           </View>
         </View>
       </ScrollView>
