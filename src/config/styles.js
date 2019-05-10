@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   },
 
   viewName: {
-    flexDirection: 'row'
+    flexDirection: "row"
   },
 
   viewName2: {
@@ -71,6 +71,31 @@ const styles = StyleSheet.create({
   viewCard: {
     alignItems: "center",
     marginTop: 15
+  },
+
+  alterarFoto: {
+    width: 200,
+    height: 50,
+    justifyContent: "center",
+    alignSelf: "center",
+    marginTop: 10
+  },
+
+  textRadiun: {
+    marginTop: 8
+  },
+
+  piker: {
+    height: 50,
+    width: 200
+  },
+
+  piker2: {
+    borderRadius: 4,
+    borderWidth: 0.5,
+    borderColor: "#ccc",
+    height: 50,
+    width: 200
   }
 });
 

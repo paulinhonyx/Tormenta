@@ -5,13 +5,15 @@ import { Provider as PaperProvider } from 'react-native-paper';
 import Main from "./pages/main";
 import Cadastro from "./pages/cadastrar";
 import Home from "./pages/home";
-import Perfil from "./pages/perfil"
+import Perfil from "./pages/perfil";
+import criarMesa from "./pages/criarMesa";
 
 const Routes =  createStackNavigator({
   Main,
   Cadastro,
   Home,
-  Perfil
+  Perfil,
+  criarMesa
 });
 
 const App = createAppContainer(Routes);
