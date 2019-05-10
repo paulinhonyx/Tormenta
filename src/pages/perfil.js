@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Image } from "react-native";
+import { View, Image, ScrollView } from "react-native";
 import {
   Appbar,
   Avatar,
@@ -23,7 +23,7 @@ export default class Perfil extends Component {
 
   render() {
     return (
-      <View>
+      <ScrollView>
         <Appbar.Header style={styles.header}>
           <Appbar.BackAction onPress={() => this.props.navigation.pop()} />
           <Appbar.Content title="Perfil" />
@@ -46,19 +46,69 @@ export default class Perfil extends Component {
           />
         </View>
         <Text>Mesas: </Text>
-        <View style={styles.viewName}>
-          <Card style={styles.card}>
-            <Image
-              source={require("../avatar/image.png")}
-              style={styles.viewName2}
-            />
-            <Card.Content>
-              <Title>Mesa Tal</Title>
-              <Paragraph>Detalhes da Mesa</Paragraph>
-            </Card.Content>
-          </Card>
+        <View>
+          <View style={styles.viewCard}>
+            <Card style={styles.card}>
+              <Image
+                source={require("../avatar/image.png")}
+                style={styles.viewName2}
+              />
+              <Card.Content>
+                <Title>Mesa Tal</Title>
+                <Paragraph>Detalhes da Mesa</Paragraph>
+              </Card.Content>
+            </Card>
+          </View>
+          <View style={styles.viewCard}>
+            <Card style={styles.card}>
+              <Image
+                source={require("../avatar/image.png")}
+                style={styles.viewName2}
+              />
+              <Card.Content>
+                <Title>Mesa Tal</Title>
+                <Paragraph>Detalhes da Mesa</Paragraph>
+              </Card.Content>
+            </Card>
+          </View>
+          <View style={styles.viewCard}>
+            <Card style={styles.card}>
+              <Image
+                source={require("../avatar/image.png")}
+                style={styles.viewName2}
+              />
+              <Card.Content>
+                <Title>Mesa Tal</Title>
+                <Paragraph>Detalhes da Mesa</Paragraph>
+              </Card.Content>
+            </Card>
+          </View>
+          <View style={styles.viewCard}>
+            <Card style={styles.card}>
+              <Image
+                source={require("../avatar/image.png")}
+                style={styles.viewName2}
+              />
+              <Card.Content>
+                <Title>Mesa Tal</Title>
+                <Paragraph>Detalhes da Mesa</Paragraph>
+              </Card.Content>
+            </Card>
+          </View>
+          <View style={styles.viewCard}>
+            <Card style={styles.card}>
+              <Image
+                source={require("../avatar/image.png")}
+                style={styles.viewName2}
+              />
+              <Card.Content>
+                <Title>Mesa Tal</Title>
+                <Paragraph>Detalhes da Mesa</Paragraph>
+              </Card.Content>
+            </Card>
+          </View>
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }

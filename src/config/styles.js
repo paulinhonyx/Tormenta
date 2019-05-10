@@ -49,12 +49,12 @@ const styles = StyleSheet.create({
     marginLeft: 30
   },
 
-  viewName: {
-    flexDirection: "row"
-  },
-
   perfil: {
     alignSelf: "center"
+  },
+
+  viewName: {
+    flexDirection: 'row'
   },
 
   viewName2: {
@@ -64,7 +64,13 @@ const styles = StyleSheet.create({
 
   card: {
     backgroundColor: "#ccc",
-    flexDirection: "row"
+    flexDirection: "row",
+    alignItems: "center"
+  },
+
+  viewCard: {
+    alignItems: "center",
+    marginTop: 15
   }
 });
 
