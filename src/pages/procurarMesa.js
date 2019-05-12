@@ -1,51 +1,27 @@
 import React, { Component } from "react";
-import { View, Image, ScrollView } from "react-native";
-import {
-  Appbar,
-  Avatar,
-  Text,
-  TextInput,
-  Card,
-  Title,
-  Paragraph,
-  Button
-} from "react-native-paper";
+import { View, ScrollView, Text, Image } from "react-native";
+import { Appbar, Card, Title, Paragraph, TextInput } from "react-native-paper";
 
 import styles from "../config/styles";
 
-export default class Perfil extends Component {
+export default class procurarMesa extends Component {
   static navigationOptions = ({ navigation }) => ({
     header: null
   });
-  state = {
-    pessoais: null
-  };
-
+  state = { nomeCodigo: "" };
   render() {
     return (
       <ScrollView>
         <Appbar.Header style={styles.header}>
           <Appbar.BackAction onPress={() => this.props.navigation.pop()} />
-          <Appbar.Content title="Perfil" />
+          <Appbar.Content title="Procurar Mesa" />
         </Appbar.Header>
-        <Avatar.Image
-          source={require("../avatar/avatarIcon.png")}
-          style={styles.perfil}
+        <Text style={styles.nomeCodigoText}>Nome/Codigo:</Text>
+        <TextInput
+          value={this.state.nomeCodigo}
+          onChangeText={nomeCodigo => this.setState({ nomeCodigo })}
+          style={styles.nomeCodigo}
         />
-        <Button onPress={() => console.log('ok')} style={styles.alterarFoto}>Alterar Foto</Button>
-        <View style={styles.viewName}>
-          <Text>Nome: </Text>
-          <Text>Fulano</Text>
-        </View>
-        <View>
-          <TextInput
-            label="Detalhes"
-            value={this.state.pessoais}
-            onChangeText={pessoais => this.setState({ pessoais })}
-            multiline
-          />
-        </View>
-        <Text>Mesas: </Text>
         <View style={styles.procurarCard}>
           <View style={styles.viewCard}>
             <Card style={styles.card}>

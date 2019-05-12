@@ -50,7 +50,7 @@ export default class cirarMesa extends Component {
               selectedValue={this.state.mundo}
               style={styles.piker}
               onValueChange={(itemValue, itemIndex) =>
-                this.setState({ language: itemValue })
+                this.setState({ mundo: itemValue })
               }
             >
               <Picker.Item label="Tormenta" value="Tormenta" />
@@ -72,6 +72,8 @@ export default class cirarMesa extends Component {
               <Dialog visible={this.state.visible} onDismiss={this._hideDialog}>
                 <Dialog.Content>
                   <Paragraph>Mesa criada com sucesso!</Paragraph>
+                  <Paragraph></Paragraph>
+                  <Paragraph>Id da Mesa: #0000</Paragraph>
                 </Dialog.Content>
                 <Dialog.Actions>
                   <Button

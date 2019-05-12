@@ -23,7 +23,7 @@ export default class Home extends Component {
         <Button
           style={styles.homeContainer}
           mode="contained"
-          onPress={() => this.props.navigation.navigate("")}
+          onPress={() => this.props.navigation.navigate("procurarMesa")}
         >
           Procurar Mesa
         </Button>

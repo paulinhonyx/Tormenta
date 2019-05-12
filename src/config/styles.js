@@ -70,14 +70,15 @@ const styles = StyleSheet.create({
   },
 
   card: {
-    backgroundColor: "#ccc",
+    backgroundColor: "#ddd",
     flexDirection: "row",
     alignItems: "center"
   },
 
   viewCard: {
     alignItems: "center",
-    marginTop: 15
+    marginTop: 15,
+    width: 350
   },
 
   alterarFoto: {
@@ -103,7 +104,31 @@ const styles = StyleSheet.create({
     borderColor: "#ccc",
     height: 50,
     width: 200,
-    marginLeft: 20,
+    marginLeft: 20
+  },
+
+  nomeCodigoText: {
+    fontSize: 35,
+    color: "black",
+    alignSelf: "center"
+  },
+
+  nomeCodigo: {
+    borderRadius: 4,
+    borderWidth: 0.5,
+    borderColor: "#ccc",
+    height: 50,
+    width: 200,
+    alignSelf: "center"
+  },
+
+  procurarCard: {
+    borderRadius: 4,
+    borderWidth: 0.5,
+    borderColor: "#ccc",
+    width: 370,
+    alignSelf: "center",
+    alignItems: "center"
   }
 });
 
