@@ -8,13 +8,23 @@ export default class procurarMesa extends Component {
   static navigationOptions = ({ navigation }) => ({
     header: null
   });
-  state = { nomeCodigo: "" };
+
+  state = { nomeCodigo: "", refreshing: false };
+
+  _onRefresh = () => {
+    this.setState({ refreshing: true });
+    fetchData().then(() => {
+      this.setState({ refreshing: false });
+    });
+  };
+
   render() {
     return (
       <ScrollView>
         <Appbar.Header style={styles.header}>
           <Appbar.BackAction onPress={() => this.props.navigation.pop()} />
           <Appbar.Content title="Procurar Mesa" />
+          <Appbar.Action icon="refresh" onPress={() => this._onRefresh} />
         </Appbar.Header>
         <Text style={styles.nomeCodigoText}>Nome/Codigo:</Text>
         <TextInput
