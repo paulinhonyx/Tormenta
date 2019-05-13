@@ -9,14 +9,7 @@ export default class procurarMesa extends Component {
     header: null
   });
 
-  state = { nomeCodigo: "", refreshing: false };
-
-  _onRefresh = () => {
-    this.setState({ refreshing: true });
-    fetchData().then(() => {
-      this.setState({ refreshing: false });
-    });
-  };
+  state = { nomeCodigo: "",  };
 
   render() {
     return (

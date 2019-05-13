@@ -39,7 +39,14 @@ const styles = StyleSheet.create({
   },
 
   header: {
-    backgroundColor: "#da552f"
+    backgroundColor: "#da552f",
+    shadowColor: "#000",
+    shadowOpacity: 0.2,
+    shadowRadius: 1,
+    shadowOffset: {
+      width: 3,
+      height: 3
+    }
   },
 
   homeContainer: {
