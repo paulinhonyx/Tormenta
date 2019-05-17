@@ -32,7 +32,9 @@ export default class Perfil extends Component {
           source={require("../avatar/avatarIcon.png")}
           style={styles.perfil}
         />
-        <Button onPress={() => console.log('ok')} style={styles.alterarFoto}>Alterar Foto</Button>
+        <Button onPress={() => console.log("ok")} style={styles.alterarFoto}>
+          Alterar Foto
+        </Button>
         <View style={styles.viewName}>
           <Text>Nome: </Text>
           <Text>Fulano</Text>
