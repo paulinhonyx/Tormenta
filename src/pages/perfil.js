@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Image, ScrollView } from "react-native";
+import { View, Image, ScrollView, TouchableOpacity } from "react-native";
 import {
   Appbar,
   Avatar,
@@ -49,7 +49,7 @@ export default class Perfil extends Component {
         </View>
         <Text>Mesas: </Text>
         <View style={styles.procurarCard}>
-          <View style={styles.viewCard}>
+          <TouchableOpacity style={styles.viewCard}>
             <Card style={styles.card}>
               <Image
                 source={require("../avatar/image.png")}
@@ -60,8 +60,8 @@ export default class Perfil extends Component {
                 <Paragraph>Detalhes da Mesa</Paragraph>
               </Card.Content>
             </Card>
-          </View>
-          <View style={styles.viewCard}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.viewCard}>
             <Card style={styles.card}>
               <Image
                 source={require("../avatar/image.png")}
@@ -72,8 +72,8 @@ export default class Perfil extends Component {
                 <Paragraph>Detalhes da Mesa</Paragraph>
               </Card.Content>
             </Card>
-          </View>
-          <View style={styles.viewCard}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.viewCard}>
             <Card style={styles.card}>
               <Image
                 source={require("../avatar/image.png")}
@@ -84,8 +84,8 @@ export default class Perfil extends Component {
                 <Paragraph>Detalhes da Mesa</Paragraph>
               </Card.Content>
             </Card>
-          </View>
-          <View style={styles.viewCard}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.viewCard}>
             <Card style={styles.card}>
               <Image
                 source={require("../avatar/image.png")}
@@ -96,8 +96,8 @@ export default class Perfil extends Component {
                 <Paragraph>Detalhes da Mesa</Paragraph>
               </Card.Content>
             </Card>
-          </View>
-          <View style={styles.viewCard}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.viewCard}>
             <Card style={styles.card}>
               <Image
                 source={require("../avatar/image.png")}
@@ -108,7 +108,7 @@ export default class Perfil extends Component {
                 <Paragraph>Detalhes da Mesa</Paragraph>
               </Card.Content>
             </Card>
-          </View>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     );

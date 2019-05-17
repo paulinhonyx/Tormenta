@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, ScrollView, Text, Image } from "react-native";
+import { View, ScrollView, Text, Image, TouchableOpacity } from "react-native";
 import { Appbar, Card, Title, Paragraph, TextInput } from "react-native-paper";
 
 import styles from "../config/styles";
@@ -9,7 +9,7 @@ export default class procurarMesa extends Component {
     header: null
   });
 
-  state = { nomeCodigo: "",  };
+  state = { nomeCodigo: "" };
 
   render() {
     return (
@@ -26,7 +26,7 @@ export default class procurarMesa extends Component {
           style={styles.nomeCodigo}
         />
         <View style={styles.procurarCard}>
-          <View style={styles.viewCard}>
+          <TouchableOpacity style={styles.viewCard}>
             <Card style={styles.card}>
               <Image
                 source={require("../avatar/image.png")}
@@ -37,8 +37,8 @@ export default class procurarMesa extends Component {
                 <Paragraph>Detalhes da Mesa</Paragraph>
               </Card.Content>
             </Card>
-          </View>
-          <View style={styles.viewCard}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.viewCard}>
             <Card style={styles.card}>
               <Image
                 source={require("../avatar/image.png")}
@@ -49,8 +49,8 @@ export default class procurarMesa extends Component {
                 <Paragraph>Detalhes da Mesa</Paragraph>
               </Card.Content>
             </Card>
-          </View>
-          <View style={styles.viewCard}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.viewCard}>
             <Card style={styles.card}>
               <Image
                 source={require("../avatar/image.png")}
@@ -61,8 +61,8 @@ export default class procurarMesa extends Component {
                 <Paragraph>Detalhes da Mesa</Paragraph>
               </Card.Content>
             </Card>
-          </View>
-          <View style={styles.viewCard}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.viewCard}>
             <Card style={styles.card}>
               <Image
                 source={require("../avatar/image.png")}
@@ -73,8 +73,8 @@ export default class procurarMesa extends Component {
                 <Paragraph>Detalhes da Mesa</Paragraph>
               </Card.Content>
             </Card>
-          </View>
-          <View style={styles.viewCard}>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.viewCard}>
             <Card style={styles.card}>
               <Image
                 source={require("../avatar/image.png")}
@@ -85,7 +85,7 @@ export default class procurarMesa extends Component {
                 <Paragraph>Detalhes da Mesa</Paragraph>
               </Card.Content>
             </Card>
-          </View>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     );
