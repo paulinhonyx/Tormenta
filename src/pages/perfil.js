@@ -1,27 +1,51 @@
 import React, { Component } from "react";
-import { View, Image, ScrollView, TouchableOpacity } from "react-native";
+import {
+  View,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+  FlatList,
+  ActivityIndicator
+} from "react-native";
 import {
   Appbar,
   Avatar,
   Text,
   TextInput,
-  Card,
   Title,
-  Paragraph,
   Button
 } from "react-native-paper";
 
 import styles from "../config/styles";
+import Cards from "../components/Cards";
 
 export default class Perfil extends Component {
   static navigationOptions = ({ navigation }) => ({
     header: null
   });
-  state = {
-    pessoais: null
-  };
+
+  constructor() {
+    super();
+    this.state = {
+      pessoais: "",
+      items: []
+    };
+  }
+
+  componentDidMount() {
+    this._get("https://jsonplaceholder.typicode.com/posts").then(data => {
+      this.setState({ items: data });
+    });
+  }
 
   render() {
+    if (this.state.items.length === 0) {
+      return (
+        <View>
+          <ActivityIndicator size="large" />
+        </View>
+      );
+    }
     return (
       <ScrollView>
         <Appbar.Header style={styles.header}>
@@ -49,68 +73,18 @@ export default class Perfil extends Component {
         </View>
         <Text>Mesas: </Text>
         <View style={styles.procurarCard}>
-          <TouchableOpacity style={styles.viewCard}>
-            <Card style={styles.card}>
-              <Image
-                source={require("../avatar/image.png")}
-                style={styles.viewName2}
-              />
-              <Card.Content>
-                <Title>Mesa Tal</Title>
-                <Paragraph>Detalhes da Mesa</Paragraph>
-              </Card.Content>
-            </Card>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.viewCard}>
-            <Card style={styles.card}>
-              <Image
-                source={require("../avatar/image.png")}
-                style={styles.viewName2}
-              />
-              <Card.Content>
-                <Title>Mesa Tal</Title>
-                <Paragraph>Detalhes da Mesa</Paragraph>
-              </Card.Content>
-            </Card>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.viewCard}>
-            <Card style={styles.card}>
-              <Image
-                source={require("../avatar/image.png")}
-                style={styles.viewName2}
-              />
-              <Card.Content>
-                <Title>Mesa Tal</Title>
-                <Paragraph>Detalhes da Mesa</Paragraph>
-              </Card.Content>
-            </Card>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.viewCard}>
-            <Card style={styles.card}>
-              <Image
-                source={require("../avatar/image.png")}
-                style={styles.viewName2}
-              />
-              <Card.Content>
-                <Title>Mesa Tal</Title>
-                <Paragraph>Detalhes da Mesa</Paragraph>
-              </Card.Content>
-            </Card>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.viewCard}>
-            <Card style={styles.card}>
-              <Image
-                source={require("../avatar/image.png")}
-                style={styles.viewName2}
-              />
-              <Card.Content>
-                <Title>Mesa Tal</Title>
-                <Paragraph>Detalhes da Mesa</Paragraph>
-              </Card.Content>
-            </Card>
-          </TouchableOpacity>
+          <FlatList
+            data={this.state.items}
+            renderItem={({ item }) => <Cards item={item} />}
+            keyExtractor={(item, index) => index.toString()}
+          />
         </View>
       </ScrollView>
     );
   }
+  _get = async endpoint => {
+    const res = await fetch(endpoint);
+    const data = await res.json();
+    return data;
+  };
 }

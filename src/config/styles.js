@@ -72,19 +72,14 @@ const styles = StyleSheet.create({
   },
 
   viewName2: {
-    width: 50,
-    height: 50
-  },
-
-  card: {
-    backgroundColor: "#ddd",
-    flexDirection: "row",
-    alignItems: "center"
+    width: 70,
+    height: 70
   },
 
   viewCard: {
     alignItems: "center",
-    marginTop: 15,
+    marginTop: 7.5,
+    marginBottom: 7.5,
     width: 350
   },
 
@@ -138,6 +133,15 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
 
+  card: {
+    backgroundColor: "#ddd",
+    flexDirection: "row",
+    borderRadius: 4,
+    borderWidth: 0.5,
+    borderColor: "#ccc",
+    width: 360,
+    padding: 10
+  },
   drawer: {
     alignItems: "flex-end"
   }

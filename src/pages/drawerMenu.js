@@ -22,17 +22,11 @@ export default class drawerMenu extends Component {
         <Drawer.Section style={styles.drawer}>
           <Drawer.Item
             label="First Item"
-            active={active === "first"}
-            onPress={() => {
-              this.setState({ active: "first" });
-            }}
+            onPress={() => this.props.navigation.navigate("")}
           />
           <Drawer.Item
             label="Second Item"
-            active={active === "second"}
-            onPress={() => {
-              this.setState({ active: "second" });
-            }}
+            onPress={() => this.props.navigation.navigate("")}
           />
         </Drawer.Section>
       </ScrollView>
