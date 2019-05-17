@@ -26,7 +26,10 @@ export default class procurarMesa extends Component {
           style={styles.nomeCodigo}
         />
         <View style={styles.procurarCard}>
-          <TouchableOpacity style={styles.viewCard}>
+          <TouchableOpacity
+            style={styles.viewCard}
+            onPress={() => this.props.navigation.navigate("Ficha")}
+          >
             <Card style={styles.card}>
               <Image
                 source={require("../avatar/image.png")}

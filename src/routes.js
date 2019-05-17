@@ -8,6 +8,8 @@ import Home from "./pages/home";
 import Perfil from "./pages/perfil";
 import criarMesa from "./pages/criarMesa";
 import procurarMesa from "./pages/procurarMesa";
+import drawerMenu from "./pages/drawerMenu";
+import Ficha from "./pages/ficha";
 
 const Routes = createStackNavigator({
   Main,
@@ -15,7 +17,9 @@ const Routes = createStackNavigator({
   Home,
   Perfil,
   criarMesa,
-  procurarMesa
+  procurarMesa,
+  drawerMenu,
+  Ficha
 });
 
 const App = createAppContainer(Routes);

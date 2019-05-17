@@ -136,6 +136,10 @@ const styles = StyleSheet.create({
     width: 370,
     alignSelf: "center",
     alignItems: "center"
+  },
+
+  drawer: {
+    alignItems: "flex-end"
   }
 });
 
