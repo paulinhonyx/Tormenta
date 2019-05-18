@@ -61,7 +61,11 @@ export default class Cadastro extends Component {
           value={this.state.email}
           onChangeText={email => this.setState({ email })}
         />
-        <HelperText style={styles.erroText} type="error" visible={!this.state.email.includes("@")}>
+        <HelperText
+          style={styles.erroText}
+          type="error"
+          visible={!this.state.email.includes("@")}
+        >
           Email invalido!
         </HelperText>
         <TextInput
@@ -74,7 +78,7 @@ export default class Cadastro extends Component {
         <Button
           style={styles.cadastrar}
           mode="contained"
-          onPress={() => this.setState({visible:"true"})}
+          onPress={() => this.setState({ visible: "true" })}
         >
           Cadastrar
         </Button>
@@ -84,7 +88,9 @@ export default class Cadastro extends Component {
               <Paragraph>Cadastro realizado com sucesso!</Paragraph>
             </Dialog.Content>
             <Dialog.Actions>
-              <Button onPress={() => this.props.navigation.navigate("Main")}>Done</Button>
+              <Button onPress={() => this.props.navigation.navigate("Main")}>
+                Done
+              </Button>
             </Dialog.Actions>
           </Dialog>
         </Portal>

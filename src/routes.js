@@ -1,6 +1,12 @@
 import React from "react";
-import { createStackNavigator, createAppContainer } from "react-navigation";
+import {
+  createStackNavigator,
+  createAppContainer,
+  createDrawerNavigator
+} from "react-navigation";
 import { Provider as PaperProvider } from "react-native-paper";
+
+import SideBar from "./pages/sideBar";
 
 import Main from "./pages/main";
 import Cadastro from "./pages/cadastrar";
@@ -11,16 +17,31 @@ import procurarMesa from "./pages/procurarMesa";
 import drawerMenu from "./pages/drawerMenu";
 import Ficha from "./pages/ficha";
 
-const Routes = createStackNavigator({
-  Main,
-  Cadastro,
-  Home,
-  Perfil,
-  criarMesa,
-  procurarMesa,
-  drawerMenu,
-  Ficha
-});
+const DrawerNavigator = createDrawerNavigator(
+  {
+    Main: { screen: Main },
+    Perfil: { screen: Perfil }
+  },
+  {
+    initialRouteName: Main,
+    drawerWidth: 300,
+    contentComponent: props => <SideBar {...props} />
+  }
+);
+
+const Routes = createStackNavigator(
+  {
+    Main: { screen: DrawerNavigator },
+    Cadastro: { screen: Cadastro }
+  },
+  {
+    defaultNavigationOptions: {
+      gesturesEnabled: false
+    },
+    initialRouteName: Main,
+    headerMode: "none"
+  }
+);
 
 const App = createAppContainer(Routes);
 
