@@ -41,7 +41,7 @@ export default class Main extends Component {
         <Button
           style={styles.entrar}
           mode="contained"
-          onPress={() => this.props.navigation.navigate("procurarMesa")}
+          onPress={() => this.props.navigation.navigate("criarMesa")}
         >
           Entrar
         </Button>

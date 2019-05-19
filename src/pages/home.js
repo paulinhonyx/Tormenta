@@ -10,10 +10,6 @@ export default class Home extends Component {
       <Appbar.Header style={styles.header}>
         <Appbar.BackAction onPress={() => navigation.pop()} />
         <Appbar.Content title="Principal" />
-        <Appbar.Action
-          icon="person"
-          onPress={() => navigation.navigate("Perfil")}
-        />
       </Appbar.Header>
     )
   });

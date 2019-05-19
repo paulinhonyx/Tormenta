@@ -11,7 +11,7 @@ import {
 
 import styles from "../config/styles";
 
-export default class cirarMesa extends Component {
+export default class criarMesa extends Component {
   static navigationOptions = ({ navigation }) => ({
     header: (
       <Appbar.Header style={styles.header}>
@@ -23,7 +23,6 @@ export default class cirarMesa extends Component {
   state = {
     nomeMesa: "",
     senha: "",
-    jogadores: "",
     mundo: null,
     visible: false
   };
@@ -44,12 +43,7 @@ export default class cirarMesa extends Component {
             onChangeText={senha => this.setState({ senha })}
             secureTextEntry
           />
-          <TextInput
-            label="Convidar Jogadores"
-            style={styles.textContainer2}
-            value={this.state.jogadores}
-            onChangeText={jogadores => this.setState({ jogadores })}
-          />
+
           <Text style={{ marginLeft: 20, marginTop: 20, fontSize: 16 }}>
             Selecione o Mundo:
           </Text>
@@ -87,7 +81,7 @@ export default class cirarMesa extends Component {
                   <Button
                     onPress={() => this.props.navigation.navigate("Home")}
                   >
-                    Done
+                    Tranquilo Dada
                   </Button>
                 </Dialog.Actions>
               </Dialog>

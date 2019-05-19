@@ -25,8 +25,6 @@ export default class Cadastro extends Component {
     usuario: "",
     senha: "",
     confSenha: "",
-    email: "",
-    confEmail: "",
     visible: false
   };
   _showDialog = () => this.setState({ visible: true });
@@ -56,26 +54,7 @@ export default class Cadastro extends Component {
           onChangeText={confSenha => this.setState({ confSenha })}
           secureTextEntry={true}
         />
-        <TextInput
-          label="Email"
-          style={styles.textContainer}
-          value={this.state.email}
-          onChangeText={email => this.setState({ email })}
-        />
-        <HelperText
-          style={styles.erroText}
-          type="error"
-          visible={!this.state.email.includes("@")}
-        >
-          Email invalido!
-        </HelperText>
-        <TextInput
-          label="Confirmar Email"
-          style={styles.textContainer}
-          keyboardType="email-address"
-          value={this.state.confEmail}
-          onChangeText={confEmail => this.setState({ confEmail })}
-        />
+
         <Button
           style={styles.cadastrar}
           mode="contained"
@@ -90,7 +69,7 @@ export default class Cadastro extends Component {
             </Dialog.Content>
             <Dialog.Actions>
               <Button onPress={() => this.props.navigation.navigate("Main")}>
-                Done
+                Suave Japão
               </Button>
             </Dialog.Actions>
           </Dialog>

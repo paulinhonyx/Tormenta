@@ -37,12 +37,8 @@ export default class procurarMesa extends Component {
     }
     return (
       <ScrollView>
-        <Text style={styles.nomeCodigoText}>Nome/Codigo:</Text>
-        <TextInput
-          value={this.state.nomeCodigo}
-          onChangeText={nomeCodigo => this.setState({ nomeCodigo })}
-          style={styles.nomeCodigo}
-        />
+        <Text style={styles.nomeCodigoText}>Mesas:</Text>
+
         <View style={styles.procurarCard}>
           <FlatList
             data={this.state.items}

@@ -16,7 +16,7 @@ export default class Pericias extends Component {
   });
 
   state = {
-    acrobaciasTotal: "",
+    acrobaciasTotal: "55",
     acrobacias1: "",
     acrobacias2: "",
     acrobacias3: "",
@@ -116,9 +116,7 @@ export default class Pericias extends Component {
     return (
       <ScrollView>
         <View style={styles.periciaContent}>
-          <View style={styles.periciaTitle}>
-            <Text style={{ fontSize: 20, color: "#fff" }}>Perícias</Text>
-          </View>
+          <View style={styles.periciaTitle} />
           <View
             style={{
               flexDirection: "row",
@@ -144,10 +142,10 @@ export default class Pericias extends Component {
           </View>
           <Text
             style={{
-              alignSelf: "center",
-              marginRight: 7,
+              alignSelf: "flex-end",
               fontWeight: "bold",
-              marginTop: 5
+              marginTop: 5,
+              marginRight: 173
             }}
           >
             Total
