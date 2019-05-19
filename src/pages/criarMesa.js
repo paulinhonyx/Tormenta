@@ -1,12 +1,24 @@
 import React, { Component } from "react";
 import { View, ScrollView, Text, Picker } from "react-native";
-import { Appbar, TextInput, Button, Portal, Dialog, Paragraph } from "react-native-paper";
+import {
+  Appbar,
+  TextInput,
+  Button,
+  Portal,
+  Dialog,
+  Paragraph
+} from "react-native-paper";
 
 import styles from "../config/styles";
 
 export default class cirarMesa extends Component {
   static navigationOptions = ({ navigation }) => ({
-    header: null
+    header: (
+      <Appbar.Header style={styles.header}>
+        <Appbar.BackAction onPress={() => navigation.pop()} />
+        <Appbar.Content title="Criar Mesa" />
+      </Appbar.Header>
+    )
   });
   state = {
     nomeMesa: "",
@@ -18,10 +30,6 @@ export default class cirarMesa extends Component {
   render() {
     return (
       <ScrollView>
-        <Appbar.Header style={styles.header}>
-          <Appbar.BackAction onPress={() => this.props.navigation.pop()} />
-          <Appbar.Content title="Criar Mesa" />
-        </Appbar.Header>
         <View>
           <TextInput
             label="Nome"
@@ -64,7 +72,7 @@ export default class cirarMesa extends Component {
             <Button
               style={styles.entrar}
               mode="contained"
-              onPress={() => this.setState({visible:"true"})}
+              onPress={() => this.setState({ visible: "true" })}
             >
               Criar
             </Button>
@@ -72,7 +80,7 @@ export default class cirarMesa extends Component {
               <Dialog visible={this.state.visible} onDismiss={this._hideDialog}>
                 <Dialog.Content>
                   <Paragraph>Mesa criada com sucesso!</Paragraph>
-                  <Paragraph></Paragraph>
+                  <Paragraph />
                   <Paragraph>Id da Mesa: #0000</Paragraph>
                 </Dialog.Content>
                 <Dialog.Actions>

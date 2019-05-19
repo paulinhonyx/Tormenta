@@ -7,15 +7,18 @@ import styles from "../config/styles";
 export default class Cards extends Component {
   render() {
     return (
-      <TouchableOpacity style={styles.viewCard}>
+      <TouchableOpacity
+        style={styles.viewCard}
+        onPress={() => this.props.props.navigation.navigate("Ficha")}
+      >
         <View style={styles.card}>
           <Image
             style={styles.viewName2}
-            source={require("../avatar/image.png")}
+            source={{ uri: this.props.item.image }}
           />
           <View style={{ marginLeft: 10 }}>
-            <Title>Mesa Tal</Title>
-            <Text>Detalhes</Text>
+            <Title>{this.props.item.title}</Title>
+            <Text>{this.props.item.description}</Text>
           </View>
         </View>
       </TouchableOpacity>

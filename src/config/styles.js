@@ -144,6 +144,38 @@ const styles = StyleSheet.create({
   },
   drawer: {
     alignItems: "flex-end"
+  },
+
+  periciaBox: {
+    width: 45,
+    height: 30,
+    backgroundColor: "#fff",
+    justifyContent: "center"
+  },
+
+  periciaTitle: {
+    borderRadius: 4,
+    height: 70,
+    width: 420,
+    justifyContent: "center",
+    backgroundColor: "#da552f",
+    alignItems: "center"
+  },
+
+  periciaContent: {
+    borderRadius: 4,
+    borderWidth: 0.5,
+    borderColor: "#ccc",
+    marginTop: 20,
+    marginBottom: 20
+  },
+
+  periciaInputContainer: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    marginRight: 5,
+    alignItems: "center"
   }
 });
 

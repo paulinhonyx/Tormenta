@@ -14,7 +14,12 @@ import styles from "../config/styles";
 
 export default class Cadastro extends Component {
   static navigationOptions = ({ navigation }) => ({
-    header: null
+    header: (
+      <Appbar.Header style={styles.header}>
+        <Appbar.BackAction onPress={() => navigation.pop()} />
+        <Appbar.Content title="Cadastro" />
+      </Appbar.Header>
+    )
   });
   state = {
     usuario: "",
@@ -31,10 +36,6 @@ export default class Cadastro extends Component {
   render() {
     return (
       <View>
-        <Appbar.Header style={styles.header}>
-          <Appbar.BackAction onPress={() => this.props.navigation.pop()} />
-          <Appbar.Content title="Cadastro" />
-        </Appbar.Header>
         <TextInput
           label="Login"
           style={styles.textContainer}

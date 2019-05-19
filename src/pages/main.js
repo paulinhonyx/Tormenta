@@ -6,7 +6,11 @@ import styles from "../config/styles";
 
 export default class Main extends Component {
   static navigationOptions = ({ navigation }) => ({
-    header: null
+    header: (
+      <Appbar.Header style={styles.header}>
+        <Appbar.Content title="SingIn" />
+      </Appbar.Header>
+    )
   });
 
   state = {
@@ -17,9 +21,6 @@ export default class Main extends Component {
   render() {
     return (
       <View>
-        <Appbar.Header style={styles.header}>
-          <Appbar.Content title="SingIn" />
-        </Appbar.Header>
         <Image
           style={styles.logo}
           source={require("../avatar/tormenta-rpg-01.png")}
@@ -40,7 +41,7 @@ export default class Main extends Component {
         <Button
           style={styles.entrar}
           mode="contained"
-          onPress={() => this.props.navigation.navigate("Home")}
+          onPress={() => this.props.navigation.navigate("procurarMesa")}
         >
           Entrar
         </Button>

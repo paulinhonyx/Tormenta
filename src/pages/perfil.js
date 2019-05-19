@@ -1,43 +1,51 @@
 import React, { Component } from "react";
-import {
-  View,
-  Image,
-  ScrollView,
-  TouchableOpacity,
-  FlatList,
-  ActivityIndicator
-} from "react-native";
-import {
-  Appbar,
-  Avatar,
-  Text,
-  TextInput,
-  Title,
-  Button
-} from "react-native-paper";
+import { View, ScrollView, FlatList, ActivityIndicator } from "react-native";
+import { Appbar, Avatar, Text, TextInput, Button } from "react-native-paper";
 
 import styles from "../config/styles";
 import Cards from "../components/Cards";
 
 export default class Perfil extends Component {
   static navigationOptions = ({ navigation }) => ({
-    header: null
+    header: (
+      <Appbar.Header style={styles.header}>
+        <Appbar.BackAction onPress={() => navigation.pop()} />
+        <Appbar.Content title="Perfil" />
+      </Appbar.Header>
+    )
   });
 
   constructor() {
     super();
     this.state = {
+      loading: false,
       pessoais: "",
-      items: []
+      items: [],
+      error: null
     };
   }
 
   componentDidMount() {
-    this._get("https://jsonplaceholder.typicode.com/posts").then(data => {
+    this._get("http://5ce16d028ad3c700145b7c26.mockapi.io/mesas").then(data => {
       this.setState({ items: data });
+      this.makeRemoteRequest();
     });
   }
 
+  makeRemoteRequest = () => {
+    this.setState({ loading: true });
+
+    getMesas()
+      .then(mesas => {
+        this.setState({
+          loading: false,
+          items: mesas
+        });
+      })
+      .catch(error => {
+        this.setState({ error, loading: false });
+      });
+  };
   render() {
     if (this.state.items.length === 0) {
       return (
@@ -46,12 +54,9 @@ export default class Perfil extends Component {
         </View>
       );
     }
+
     return (
       <ScrollView>
-        <Appbar.Header style={styles.header}>
-          <Appbar.BackAction onPress={() => this.props.navigation.pop()} />
-          <Appbar.Content title="Perfil" />
-        </Appbar.Header>
         <Avatar.Image
           source={require("../avatar/avatarIcon.png")}
           style={styles.perfil}
@@ -75,8 +80,10 @@ export default class Perfil extends Component {
         <View style={styles.procurarCard}>
           <FlatList
             data={this.state.items}
-            renderItem={({ item }) => <Cards item={item} />}
             keyExtractor={(item, index) => index.toString()}
+            renderItem={({ item }) => (
+              <Cards item={item} onPress={() => this.props} />
+            )}
           />
         </View>
       </ScrollView>

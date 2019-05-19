@@ -6,7 +6,12 @@ import styles from "../config/styles";
 
 export default class drawerMenu extends Component {
   static navigationOptions = ({ navigation }) => ({
-    header: null
+    header: (
+      <Appbar.Header style={styles.header}>
+        <Appbar.BackAction onPress={() => navigation.pop()} />
+        <Appbar.Content title="Menu" />
+      </Appbar.Header>
+    )
   });
 
   state = { nomeCodigo: "", active: "first" };
@@ -15,10 +20,6 @@ export default class drawerMenu extends Component {
     const { active } = this.state;
     return (
       <ScrollView>
-        <Appbar.Header style={styles.header}>
-          <Appbar.BackAction onPress={() => this.props.navigation.pop()} />
-          <Appbar.Content title="Menu" />
-        </Appbar.Header>
         <Drawer.Section style={styles.drawer}>
           <Drawer.Item
             label="First Item"

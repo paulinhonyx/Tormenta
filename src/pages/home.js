@@ -6,20 +6,21 @@ import styles from "../config/styles";
 
 export default class Home extends Component {
   static navigationOptions = ({ navigation }) => ({
-    header: null
+    header: (
+      <Appbar.Header style={styles.header}>
+        <Appbar.BackAction onPress={() => navigation.pop()} />
+        <Appbar.Content title="Principal" />
+        <Appbar.Action
+          icon="person"
+          onPress={() => navigation.navigate("Perfil")}
+        />
+      </Appbar.Header>
+    )
   });
   state = {};
   render() {
     return (
       <View>
-        <Appbar.Header style={styles.header}>
-          <Appbar.BackAction onPress={() => this.props.navigation.pop()} />
-          <Appbar.Content title="Principal" />
-          <Appbar.Action
-            icon="person"
-            onPress={() => this.props.navigation.navigate("Perfil")}
-          />
-        </Appbar.Header>
         <Button
           style={styles.homeContainer}
           mode="contained"
