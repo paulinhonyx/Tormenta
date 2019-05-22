@@ -2,7 +2,7 @@ import React from "react";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import { Provider as PaperProvider } from "react-native-paper";
 
-import Main from "./pages/SingIn";
+import SingIn from "./pages/SingIn";
 import Cadastro from "./pages/cadastrar";
 import Home from "./pages/home";
 import Perfil from "./pages/perfil";
@@ -12,7 +12,7 @@ import drawerMenu from "./pages/drawerMenu";
 import Pericias from "./pages/pericias";
 
 const Routes = createStackNavigator({
-  Main,
+  SingIn,
   Cadastro,
   Home,
   Perfil,

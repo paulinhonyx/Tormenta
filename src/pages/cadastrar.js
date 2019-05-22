@@ -25,9 +25,9 @@ export default class Cadastro extends Component {
   };
 
   state = {
-    usuario: "",
-    senha: "",
-    confSenha: "",
+    usuario: "katchaca",
+    senha: "12345678 ",
+    confSenha: "12345678",
     visible: false,
     error: "",
     success: ""
@@ -53,7 +53,7 @@ export default class Cadastro extends Component {
     } else {
       try {
         await api.post("/cadastro", {
-          usuario: this.state.usuario,
+          nome: this.state.usuario,
           senha: this.state.senha
         });
 
@@ -62,7 +62,7 @@ export default class Cadastro extends Component {
           error: ""
         });
 
-        setTimeout(this.goToLogin, 2500);
+        setTimeout(this.goToLogin, 500);
       } catch (_err) {
         this.setState({
           error:

@@ -1,6 +1,12 @@
 import React, { Component } from "react";
-import { View, ScrollView, Text, FlatList } from "react-native";
-import { Appbar, TextInput, ActivityIndicator } from "react-native-paper";
+import {
+  View,
+  ScrollView,
+  Text,
+  FlatList,
+  TouchableOpacity
+} from "react-native";
+import { Appbar, ActivityIndicator } from "react-native-paper";
 
 import styles from "../config/styles";
 import Cards from "../components/Cards";
@@ -44,7 +50,13 @@ export default class procurarMesa extends Component {
           <FlatList
             data={this.state.items}
             keyExtractor={(item, index) => index.toString()}
-            renderItem={({ item }) => <Cards item={item} />}
+            renderItem={({ item }) => (
+              <TouchableOpacity
+                onPress={() => this.props.navigation.push("Pericias")}
+              >
+                <Cards item={item} />
+              </TouchableOpacity>
+            )}
           />
         </View>
       </ScrollView>

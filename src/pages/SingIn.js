@@ -4,7 +4,7 @@ import { TextInput, Button } from "react-native-paper";
 
 import styles from "../config/styles";
 
-export default class Main extends Component {
+export default class SingIn extends Component {
   static navigationOptions = ({ navigation }) => ({
     header: null
   });

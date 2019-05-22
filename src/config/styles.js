@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   logo: {
     alignSelf: "center",
-    marginTop: 10
+    marginTop: 150
   },
 
   textContainer: {
