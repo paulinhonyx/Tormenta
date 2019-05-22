@@ -1,16 +1,12 @@
 import React, { Component } from "react";
 import { Image, View } from "react-native";
-import { TextInput, Button, Appbar } from "react-native-paper";
+import { TextInput, Button } from "react-native-paper";
 
 import styles from "../config/styles";
 
 export default class Main extends Component {
   static navigationOptions = ({ navigation }) => ({
-    header: (
-      <Appbar.Header style={styles.header}>
-        <Appbar.Content title="SingIn" />
-      </Appbar.Header>
-    )
+    header: null
   });
 
   state = {
@@ -41,7 +37,7 @@ export default class Main extends Component {
         <Button
           style={styles.entrar}
           mode="contained"
-          onPress={() => this.props.navigation.navigate("criarMesa")}
+          onPress={() => this.props.navigation.navigate("Home")}
         >
           Entrar
         </Button>

@@ -2,7 +2,7 @@ import React from "react";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import { Provider as PaperProvider } from "react-native-paper";
 
-import Main from "./pages/main";
+import Main from "./pages/Sing In";
 import Cadastro from "./pages/cadastrar";
 import Home from "./pages/home";
 import Perfil from "./pages/perfil";

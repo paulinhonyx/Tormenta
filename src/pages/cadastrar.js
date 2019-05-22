@@ -3,11 +3,11 @@ import { View } from "react-native";
 import {
   Appbar,
   TextInput,
-  HelperText,
   Button,
   Dialog,
   Portal,
-  Paragraph
+  Paragraph,
+  Text
 } from "react-native-paper";
 
 import styles from "../config/styles";
@@ -25,26 +25,31 @@ export default class Cadastro extends Component {
     usuario: "",
     senha: "",
     confSenha: "",
-    visible: false
+    visible: false,
+    error: ""
   };
   _showDialog = () => this.setState({ visible: true });
 
   _hideDialog = () => this.setState({ visible: false });
 
+  usuarioChange = usuario => this.setState({ usuario });
+
+  senhaChange = senha => this.setState({ senha });
+
   render() {
     return (
       <View>
         <TextInput
-          label="Login"
+          label="Usuario"
           style={styles.textContainer}
           value={this.state.usuario}
-          onChangeText={usuario => this.setState({ usuario })}
+          onChangeText={this.usuarioChange}
         />
         <TextInput
           label="Senha"
           style={styles.textContainer}
           value={this.state.senha}
-          onChangeText={senha => this.setState({ senha })}
+          onChangeText={this.senhaChange}
           secureTextEntry={true}
         />
         <TextInput
@@ -54,7 +59,7 @@ export default class Cadastro extends Component {
           onChangeText={confSenha => this.setState({ confSenha })}
           secureTextEntry={true}
         />
-
+        {this.state.error.length !== 0 && <Text>{this.state.error}</Text>}
         <Button
           style={styles.cadastrar}
           mode="contained"

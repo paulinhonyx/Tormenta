@@ -26,6 +26,11 @@ export default class criarMesa extends Component {
     mundo: null,
     visible: false
   };
+
+  _showDialog = () => this.setState({ visible: true });
+
+  _hideDialog = () => this.setState({ visible: false });
+
   render() {
     return (
       <ScrollView>
@@ -77,11 +82,12 @@ export default class criarMesa extends Component {
                   <Paragraph />
                   <Paragraph>Id da Mesa: #0000</Paragraph>
                 </Dialog.Content>
+
                 <Dialog.Actions>
                   <Button
                     onPress={() => this.props.navigation.navigate("Home")}
                   >
-                    Tranquilo Dada
+                    Suave Japão
                   </Button>
                 </Dialog.Actions>
               </Dialog>
