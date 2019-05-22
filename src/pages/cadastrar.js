@@ -1,16 +1,10 @@
 import React, { Component } from "react";
 import { View } from "react-native";
-import {
-  Appbar,
-  TextInput,
-  Button,
-  Dialog,
-  Portal,
-  Paragraph,
-  Text
-} from "react-native-paper";
+import { Appbar, TextInput, Button, Text } from "react-native-paper";
+import PropTypes from "prop-types";
 
 import styles from "../config/styles";
+import api from "../services/api";
 
 export default class Cadastro extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -21,12 +15,22 @@ export default class Cadastro extends Component {
       </Appbar.Header>
     )
   });
+
+  static propTypes = {
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func,
+      dispatch: PropTypes.func,
+      goBack: PropTypes.func
+    }).isRequired
+  };
+
   state = {
     usuario: "",
     senha: "",
     confSenha: "",
     visible: false,
-    error: ""
+    error: "",
+    success: ""
   };
   _showDialog = () => this.setState({ visible: true });
 
@@ -36,6 +40,46 @@ export default class Cadastro extends Component {
 
   senhaChange = senha => this.setState({ senha });
 
+  singUpPress = async () => {
+    if (
+      this.state.usuario.length === 0 ||
+      this.state.senha.length === 0 ||
+      this.state.confSenha.length === 0
+    ) {
+      this.setState(
+        { error: "Preencha todos os campos para continuar!" },
+        () => false
+      );
+    } else {
+      try {
+        await api.post("/cadastro", {
+          usuario: this.state.usuario,
+          senha: this.state.senha
+        });
+
+        this.setState({
+          success: "Conta criada com sucesso! Redirecionando para o login",
+          error: ""
+        });
+
+        setTimeout(this.goToLogin, 2500);
+      } catch (_err) {
+        this.setState({
+          error:
+            "Houve um problema com o cadastro, verifique os dados preenchidos!"
+        });
+      }
+    }
+  };
+
+  goToLogin = () => {
+    const resetAction = StackActions.reset({
+      index: 0,
+      actions: [NavigationActions.navigate({ routeName: "SignIn" })]
+    });
+    this.props.navigation.dispatch(resetAction);
+  };
+
   render() {
     return (
       <View>
@@ -44,6 +88,8 @@ export default class Cadastro extends Component {
           style={styles.textContainer}
           value={this.state.usuario}
           onChangeText={this.usuarioChange}
+          autoCorrect={false}
+          autoCapitalize={"none"}
         />
         <TextInput
           label="Senha"
@@ -63,22 +109,10 @@ export default class Cadastro extends Component {
         <Button
           style={styles.cadastrar}
           mode="contained"
-          onPress={() => this.setState({ visible: "true" })}
+          onPress={this.singUpPress}
         >
           Cadastrar
         </Button>
-        <Portal>
-          <Dialog visible={this.state.visible} onDismiss={this._hideDialog}>
-            <Dialog.Content>
-              <Paragraph>Cadastro realizado com sucesso!</Paragraph>
-            </Dialog.Content>
-            <Dialog.Actions>
-              <Button onPress={() => this.props.navigation.navigate("Main")}>
-                Suave Japão
-              </Button>
-            </Dialog.Actions>
-          </Dialog>
-        </Portal>
       </View>
     );
   }
