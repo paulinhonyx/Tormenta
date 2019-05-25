@@ -1,5 +1,9 @@
 import React from "react";
-import { createStackNavigator, createAppContainer } from "react-navigation";
+import {
+  createStackNavigator,
+  createAppContainer,
+  createDrawerNavigator
+} from "react-navigation";
 import { Provider as PaperProvider } from "react-native-paper";
 
 import SingIn from "./pages/SingIn";
@@ -22,7 +26,18 @@ const Routes = createStackNavigator({
   Pericias
 });
 
-const App = createAppContainer(Routes);
+const DrawerNavigator = createDrawerNavigator({
+  SingIn,
+  Cadastro,
+  Home,
+  Perfil,
+  criarMesa,
+  procurarMesa,
+  drawerMenu,
+  Pericias
+});
+
+const App = createAppContainer(Routes, DrawerNavigator);
 
 export default () => {
   return (
