@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { View } from "react-native";
 import { Appbar, TextInput, Button, Text } from "react-native-paper";
 import PropTypes from "prop-types";
+import QueryString from "query-string";
 
 import styles from "../config/styles";
 import api from "../services/api";
@@ -52,10 +53,14 @@ export default class Cadastro extends Component {
       );
     } else {
       try {
-        await api.post("/cadastro", {
+        const obg = {
           nome: this.state.usuario,
           senha: this.state.senha
+        };
+        const log = await api.post("/cadastro", QueryString.stringify(obg), {
+          headers: { "Content-Type": "application/json" }
         });
+        console.log(log);
 
         this.setState({
           success: "Conta criada com sucesso! Redirecionando para o login",
