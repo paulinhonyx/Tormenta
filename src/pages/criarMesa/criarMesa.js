@@ -9,7 +9,7 @@ import {
   Paragraph
 } from "react-native-paper";
 
-import styles from "../config/styles";
+import styles from "../../config/styles";
 
 export default class criarMesa extends Component {
   static navigationOptions = ({ navigation }) => ({

@@ -3,10 +3,10 @@ import { View } from "react-native";
 import { Appbar, TextInput, Button, Text } from "react-native-paper";
 import PropTypes from "prop-types";
 
-import styles from "../config/styles";
-import api from "../services/api";
+import styles from "../../config/styles";
+import api from "../../services/api";
 
-export default class Cadastro extends Component {
+export default class signUp extends Component {
   static navigationOptions = ({ navigation }) => ({
     header: (
       <Appbar.Header style={styles.header}>

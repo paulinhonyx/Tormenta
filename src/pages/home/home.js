@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View } from "react-native";
 import { Appbar, Button } from "react-native-paper";
 
-import styles from "../config/styles";
+import styles from "../../config/styles";
 
 export default class Home extends Component {
   static navigationOptions = ({ navigation }) => ({

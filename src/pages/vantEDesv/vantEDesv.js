@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { View, ScrollView, Image } from "react-native";
+import { View, ScrollView } from "react-native";
 import { Appbar, Text, TextInput } from "react-native-paper";
 
-import styles from "../config/styles";
+import styles from "../../config/styles";
 
-export default class Pericias extends Component {
+export default class vantEDesv extends Component {
   static navigationOptions = ({ navigation }) => ({
     header: (
       <Appbar.Header style={styles.header}>

@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Image, View } from "react-native";
 import { TextInput, Button } from "react-native-paper";
 
-import styles from "../config/styles";
+import styles from "../../config/styles";
 
-export default class SingIn extends Component {
+export default class SignIn extends Component {
   static navigationOptions = ({ navigation }) => ({
     header: null
   });
@@ -19,7 +19,7 @@ export default class SingIn extends Component {
       <View>
         <Image
           style={styles.logo}
-          source={require("../avatar/tormenta-rpg-01.png")}
+          source={require("../../avatar/tormenta-rpg-01.png")}
         />
         <TextInput
           label="Login"

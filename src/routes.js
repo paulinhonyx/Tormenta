@@ -2,24 +2,22 @@ import React from "react";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import { Provider as PaperProvider } from "react-native-paper";
 
-import SingIn from "./pages/SingIn";
-import Cadastro from "./pages/cadastrar";
-import Home from "./pages/home";
-import Perfil from "./pages/perfil";
-import criarMesa from "./pages/criarMesa";
-import procurarMesa from "./pages/procurarMesa";
-import drawerMenu from "./pages/drawerMenu";
-import Pericias from "./pages/pericias";
+import SignIn from "./pages/signIn/signIn";
+import signUp from "./pages/signUp/signUp";
+import Home from "./pages/home/home";
+import minhasMesas from "./pages/minhasMesas/minhasMesas";
+import criarMesa from "./pages/criarMesa/criarMesa";
+import procurarMesa from "./pages/procurarMesa/procurarMesa";
+import vantEDesv from "./pages/vantEDesv/vantEDesv";
 
 const Routes = createStackNavigator({
-  SingIn,
-  Cadastro,
+  SignIn,
+  signUp,
   Home,
-  Perfil,
+  minhasMesas,
   criarMesa,
   procurarMesa,
-  drawerMenu,
-  Pericias
+  vantEDesv
 });
 
 const App = createAppContainer(Routes);
