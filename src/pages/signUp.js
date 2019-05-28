@@ -25,14 +25,17 @@ export default class Cadastro extends Component {
     }).isRequired
   };
 
-  state = {
-    usuario: "katchaca",
-    senha: "12345678 ",
-    confSenha: "12345678",
-    visible: false,
-    error: "",
-    success: ""
-  };
+  constructor() {
+    super();
+    this.state = {
+      usuario: "katchaca",
+      senha: "12345678",
+      confSenha: "12345678",
+      visible: false,
+      error: "",
+      success: ""
+    };
+  }
   _showDialog = () => this.setState({ visible: true });
 
   _hideDialog = () => this.setState({ visible: false });
@@ -41,34 +44,28 @@ export default class Cadastro extends Component {
 
   senhaChange = senha => this.setState({ senha });
 
-  singUpPress = async () => {
+  handleSignUpPress = async () => {
     if (
       this.state.usuario.length === 0 ||
       this.state.senha.length === 0 ||
       this.state.confSenha.length === 0
     ) {
-      this.setState(
-        { error: "Preencha todos os campos para continuar!" },
-        () => false
-      );
+      this.setState({ error: "Preencha todos os campos para continuar!" });
     } else {
       try {
-        const obg = {
-          nome: this.state.usuario,
-          senha: this.state.senha
-        };
-        const log = await api.post("/cadastro", QueryString.stringify(obg), {
-          headers: { "Content-Type": "application/json" }
+        await api.post("/cadastro", {
+          nome: "this.state.usuario",
+          senha: "this.state.senha"
         });
-        console.log(log);
 
         this.setState({
           success: "Conta criada com sucesso! Redirecionando para o login",
           error: ""
         });
 
-        setTimeout(this.goToLogin, 500);
-      } catch (_err) {
+        this.props.navigation.navigate("Home");
+      } catch (error) {
+        console.log(error);
         this.setState({
           error:
             "Houve um problema com o cadastro, verifique os dados preenchidos!"
@@ -76,7 +73,22 @@ export default class Cadastro extends Component {
       }
     }
   };
-
+  /*
+    await fetch("http://127.0.0.1:5000/cadastro", {
+      method: "POST",
+      headers: {
+        accept: "appcation/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        nome: this.state.usuario,
+        senha: this.state.senha
+      })
+    });
+    console.log(fetch);
+    this.props.navigation.navigate("Home");
+  };
+  */
   goToLogin = () => {
     const resetAction = StackActions.reset({
       index: 0,
@@ -114,7 +126,7 @@ export default class Cadastro extends Component {
         <Button
           style={styles.cadastrar}
           mode="contained"
-          onPress={this.singUpPress}
+          onPress={this.handleSignUpPress}
         >
           Cadastrar
         </Button>

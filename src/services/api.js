@@ -1,11 +1,7 @@
-import { create } from "apisauce";
+import axios from "axios";
 
-const api = create({
-  baseURL: "http://5ce16d028ad3c700145b7c26.mockapi.io"
-});
-
-api.addResponseTransform(response => {
-  if (!response.ok) throw response;
+const api = axios.create({
+  baseURL: "http://127.0.0.1:5000"
 });
 
 export default api;
