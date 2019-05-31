@@ -28,6 +28,14 @@ const styles = StyleSheet.create({
     marginTop: 20,
     backgroundColor: "#0066cc"
   },
+  cancelar: {
+    width: 200,
+    height: 50,
+    justifyContent: "center",
+    alignSelf: "center",
+    marginTop: 20,
+    backgroundColor: "red"
+  },
 
   cadastrar: {
     width: 200,

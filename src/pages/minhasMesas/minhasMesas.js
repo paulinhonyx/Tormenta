@@ -2,35 +2,36 @@ import React, { Component } from "react";
 import {
   View,
   ScrollView,
-  Text,
   FlatList,
+  ActivityIndicator,
   TouchableOpacity
 } from "react-native";
-import { Appbar, ActivityIndicator } from "react-native-paper";
+import { Appbar, Text } from "react-native-paper";
 
-import styles from "../config/styles";
-import Cards from "../components/Cards";
+import styles from "../../config/styles";
+import Cards from "../../components/Cards";
 
-export default class procurarMesa extends Component {
+export default class minhasMesas extends Component {
   static navigationOptions = ({ navigation }) => ({
     header: (
       <Appbar.Header style={styles.header}>
         <Appbar.BackAction onPress={() => navigation.pop()} />
-        <Appbar.Content title="Procurar Mesa" />
-        <Appbar.Action icon="refresh" onPress={() => this._onRefresh} />
+        <Appbar.Content title="Perfil" />
       </Appbar.Header>
     )
   });
+
+  constructor() {
+    super();
+    this.state = {
+      items: []
+    };
+  }
 
   componentDidMount() {
     this._get("http://5ce16d028ad3c700145b7c26.mockapi.io/mesas").then(data => {
       this.setState({ items: data });
     });
-  }
-
-  constructor() {
-    super();
-    this.state = { nomeCodigo: "", items: [] };
   }
 
   render() {
@@ -44,15 +45,14 @@ export default class procurarMesa extends Component {
 
     return (
       <ScrollView>
-        <Text style={styles.nomeCodigoText}>Mesas:</Text>
-
+        <Text>Mesas: </Text>
         <View style={styles.procurarCard}>
           <FlatList
             data={this.state.items}
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item }) => (
               <TouchableOpacity
-                onPress={() => this.props.navigation.push("Pericias")}
+                onPress={() => this.props.navigation.push("vantEDesv")}
               >
                 <Cards item={item} />
               </TouchableOpacity>

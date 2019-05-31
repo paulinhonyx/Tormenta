@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View } from "react-native";
 import { Appbar, Button } from "react-native-paper";
 
-import styles from "../config/styles";
+import styles from "../../config/styles";
 
 export default class Home extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -11,9 +11,9 @@ export default class Home extends Component {
         <Appbar.BackAction onPress={() => navigation.pop()} />
         <Appbar.Content title="Principal" />
       </Appbar.Header>
-    )
+    ),
+    drawerLabel: "Notifications"
   });
-  state = {};
   render() {
     return (
       <View>
@@ -23,6 +23,13 @@ export default class Home extends Component {
           onPress={() => this.props.navigation.navigate("procurarMesa")}
         >
           Procurar Mesa
+        </Button>
+        <Button
+          style={styles.homeContainer}
+          mode="contained"
+          onPress={() => this.props.navigation.navigate("minhasMesas")}
+        >
+          Minhas Mesas
         </Button>
         <Button
           style={styles.homeContainer}

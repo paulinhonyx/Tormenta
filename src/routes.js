@@ -6,21 +6,30 @@ import {
 } from "react-navigation";
 import { Provider as PaperProvider } from "react-native-paper";
 
-import SideBar from "./pages/sideBar";
+import SideBar from "./components/sideBar";
 
-import Home from "./pages/home";
-import SingIn from "./pages/SingIn";
-import Cadastro from "./pages/cadastrar";
-import Perfil from "./pages/perfil";
+import SignIn from "./pages/signIn/signIn";
+import signUp from "./pages/signUp/signUp";
+import Home from "./pages/home/home";
+import minhasMesas from "./pages/minhasMesas/minhasMesas";
+import criarMesa from "./pages/criarMesa/criarMesa";
+import procurarMesa from "./pages/procurarMesa/procurarMesa";
+import vantEDesv from "./pages/vantEDesv/vantEDesv";
+import fichaPrinc from "./pages/ficha/fichaPrinc";
 
 const DrawerNavigator = createDrawerNavigator(
   {
     Home: { screen: Home },
-    Perfil: { screen: Perfil }
+    minhasMesas: { screen: minhasMesas },
+    procurarMesa: { screen: procurarMesa },
+    criarMesa: { screen: criarMesa },
+    procurarMesa: { screen: procurarMesa },
+    vantEDesv: { screen: vantEDesv }
   },
   {
     initialRouteName: "Home",
-    drawerWidth: 300,
+    drawerWidth: 200,
+    drawerPosition: "right",
     contentComponent: props => <SideBar {...props} />
   }
 );
@@ -30,24 +39,39 @@ const HomeStack = createStackNavigator(
     Home: { screen: DrawerNavigator }
   },
   {
-    initialRouteName: "Home",
-    headerMode: "none"
+    initialRouteName: "Home"
   }
 );
 
 const Routes = createStackNavigator(
   {
-    SingIn: { screen: SingIn },
+    SignIn: { screen: SignIn },
     Home: { screen: DrawerNavigator },
-    Cadastro: { screen: Cadastro }
+    signUp: { screen: signUp },
+    minhasMesas: { screen: minhasMesas },
+    procurarMesa: { screen: procurarMesa },
+    criarMesa: { screen: criarMesa },
+    procurarMesa: { screen: procurarMesa },
+    vantEDesv: { screen: vantEDesv },
+    fichaPrinc: { screen: fichaPrinc }
   },
   {
-    initialRouteName: "SingIn",
-    headerMode: "none"
+    initialRouteName: "SignIn",
+    headerMode: "screen"
   }
 );
-
 const App = createAppContainer(Routes);
+/*
+const Routes = createStackNavigator({
+  SignIn,
+  signUp,
+  Home,
+  minhasMesas,
+  criarMesa,
+  procurarMesa,
+  vantEDesv
+});
+*/
 
 export default () => {
   return (

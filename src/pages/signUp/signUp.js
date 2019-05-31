@@ -3,10 +3,10 @@ import { View } from "react-native";
 import { Appbar, TextInput, Button, Text } from "react-native-paper";
 import PropTypes from "prop-types";
 
-import styles from "../config/styles";
-import api from "../services/api";
+import styles from "../../config/styles";
+import api from "../../services/api";
 
-export default class Cadastro extends Component {
+export default class signUp extends Component {
   static navigationOptions = ({ navigation }) => ({
     header: (
       <Appbar.Header style={styles.header}>
@@ -53,16 +53,16 @@ export default class Cadastro extends Component {
     } else {
       try {
         await api.post("/cadastro", {
-          nome: this.state.usuario,
-          senha: this.state.senha
+          nome: "katchaca",
+          senha: "12345678 "
         });
-
+        console.log(api);
         this.setState({
           success: "Conta criada com sucesso! Redirecionando para o login",
           error: ""
         });
-
-        setTimeout(this.goToLogin, 500);
+        this.props.navigation.navigate("Home");
+        //setTimeout(this.goToLogin, 500);
       } catch (_err) {
         this.setState({
           error:

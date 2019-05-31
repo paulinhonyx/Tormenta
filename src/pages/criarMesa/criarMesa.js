@@ -9,7 +9,7 @@ import {
   Paragraph
 } from "react-native-paper";
 
-import styles from "../config/styles";
+import styles from "../../config/styles";
 
 export default class criarMesa extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -24,12 +24,17 @@ export default class criarMesa extends Component {
     nomeMesa: "",
     senha: "",
     mundo: null,
-    visible: false
+    criar: false,
+    cancelar: false
   };
 
-  _showDialog = () => this.setState({ visible: true });
+  _showcriar = () => this.setState({ criar: true });
 
-  _hideDialog = () => this.setState({ visible: false });
+  _hidecriar = () => this.setState({ criar: false });
+
+  _showcancelar = () => this.setState({ cancelar: true });
+
+  _hidecancelar = () => this.setState({ cancelar: false });
 
   render() {
     return (
@@ -49,34 +54,23 @@ export default class criarMesa extends Component {
             secureTextEntry
           />
 
-          <Text style={{ marginLeft: 20, marginTop: 20, fontSize: 16 }}>
-            Selecione o Mundo:
-          </Text>
-          <View style={styles.piker2}>
-            <Picker
-              selectedValue={this.state.mundo}
-              style={styles.piker}
-              onValueChange={(itemValue, itemIndex) =>
-                this.setState({ mundo: itemValue })
-              }
-            >
-              <Picker.Item label="Tormenta" value="Tormenta" />
-              <Picker.Item label="Tormenta2" value="Tormenta2" />
-              <Picker.Item label="Tormenta3" value="Tormenta3" />
-              <Picker.Item label="Tormenta4" value="Tormenta4" />
-              <Picker.Item label="Tormenta5" value="Tormenta5" />
-            </Picker>
-          </View>
           <View>
             <Button
               style={styles.entrar}
               mode="contained"
-              onPress={() => this.setState({ visible: "true" })}
+              onPress={() => this.setState({ criar: true })}
             >
               Criar
             </Button>
+            <Button
+              style={styles.cancelar}
+              mode="contained"
+              onPress={() => this.setState({ cancelar: true })}
+            >
+              Cancelar
+            </Button>
             <Portal>
-              <Dialog visible={this.state.visible} onDismiss={this._hideDialog}>
+              <Dialog visible={this.state.criar} onDismiss={this._hidecriar}>
                 <Dialog.Content>
                   <Paragraph>Mesa criada com sucesso!</Paragraph>
                   <Paragraph />
@@ -85,10 +79,27 @@ export default class criarMesa extends Component {
 
                 <Dialog.Actions>
                   <Button
-                    onPress={() => this.props.navigation.navigate("Home")}
+                    onPress={() => this.props.navigation.navigate("fichaPrinc")}
                   >
                     Suave Japão
                   </Button>
+                </Dialog.Actions>
+              </Dialog>
+              <Dialog
+                visible={this.state.cancelar}
+                onDismiss={this._hidecancelar}
+              >
+                <Dialog.Content>
+                  <Paragraph>Desesa cancelar?</Paragraph>
+                </Dialog.Content>
+
+                <Dialog.Actions>
+                  <Button
+                    onPress={() => this.props.navigation.navigate("Home")}
+                  >
+                    Cancelar
+                  </Button>
+                  <Button onPress={this._hidecancelar}>Não</Button>
                 </Dialog.Actions>
               </Dialog>
             </Portal>
