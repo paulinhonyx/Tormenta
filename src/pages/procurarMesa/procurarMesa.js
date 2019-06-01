@@ -8,8 +8,8 @@ import {
 } from "react-native";
 import { Appbar, ActivityIndicator, Searchbar } from "react-native-paper";
 
-import styles from "../config/styles";
-import Cards from "../components/Cards";
+import styles from "../../config/styles";
+import Cards from "../../components/Cards";
 
 export default class procurarMesa extends Component {
   static navigationOptions = ({ navigation }) => ({
