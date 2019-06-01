@@ -13,12 +13,7 @@ import styles from "../../config/styles";
 
 export default class criarMesa extends Component {
   static navigationOptions = ({ navigation }) => ({
-    header: (
-      <Appbar.Header style={styles.header}>
-        <Appbar.BackAction onPress={() => navigation.pop()} />
-        <Appbar.Content title="Criar Mesa" />
-      </Appbar.Header>
-    )
+    header: null
   });
   state = {
     nomeMesa: "",
@@ -39,6 +34,10 @@ export default class criarMesa extends Component {
   render() {
     return (
       <ScrollView>
+        <Appbar.Header style={styles.header}>
+          <Appbar.BackAction onPress={() => this.props.navigation.pop()} />
+          <Appbar.Content title="Criar Mesa" />
+        </Appbar.Header>
         <View>
           <TextInput
             label="Nome"

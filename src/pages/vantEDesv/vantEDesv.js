@@ -6,12 +6,7 @@ import styles from "../../config/styles";
 
 export default class vantEDesv extends Component {
   static navigationOptions = ({ navigation }) => ({
-    header: (
-      <Appbar.Header style={styles.header}>
-        <Appbar.BackAction onPress={() => navigation.pop()} />
-        <Appbar.Content title="Perícias" />
-      </Appbar.Header>
-    )
+    header: null
   });
 
   state = {
@@ -114,6 +109,10 @@ export default class vantEDesv extends Component {
   render() {
     return (
       <ScrollView>
+        <Appbar.Header style={styles.header}>
+          <Appbar.BackAction onPress={() => navigation.pop()} />
+          <Appbar.Content title="Perícias" />
+        </Appbar.Header>
         <View style={styles.periciaContent}>
           <View style={styles.periciaTitle} />
           <View

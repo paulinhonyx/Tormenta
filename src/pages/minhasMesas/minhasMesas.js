@@ -13,12 +13,7 @@ import Cards from "../../components/Cards";
 
 export default class minhasMesas extends Component {
   static navigationOptions = ({ navigation }) => ({
-    header: (
-      <Appbar.Header style={styles.header}>
-        <Appbar.BackAction onPress={() => navigation.pop()} />
-        <Appbar.Content title="Perfil" />
-      </Appbar.Header>
-    )
+    header: null
   });
 
   constructor() {
@@ -45,6 +40,10 @@ export default class minhasMesas extends Component {
 
     return (
       <ScrollView>
+        <Appbar.Header style={styles.header}>
+          <Appbar.BackAction onPress={() => this.props.navigation.pop()} />
+          <Appbar.Content title="Perfil" />
+        </Appbar.Header>
         <Text>Mesas: </Text>
         <View style={styles.procurarCard}>
           <FlatList

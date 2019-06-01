@@ -57,7 +57,7 @@ const Routes = createStackNavigator(
   },
   {
     initialRouteName: "SignIn",
-    headerMode: "screen"
+    headerMode: "none"
   }
 );
 const App = createAppContainer(Routes);

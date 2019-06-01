@@ -8,12 +8,7 @@ import api from "../../services/api";
 
 export default class signUp extends Component {
   static navigationOptions = ({ navigation }) => ({
-    header: (
-      <Appbar.Header style={styles.header}>
-        <Appbar.BackAction onPress={() => navigation.pop()} />
-        <Appbar.Content title="Cadastro" />
-      </Appbar.Header>
-    )
+    header: null
   });
 
   static propTypes = {
@@ -83,6 +78,10 @@ export default class signUp extends Component {
   render() {
     return (
       <View>
+        <Appbar.Header style={styles.header}>
+          <Appbar.BackAction onPress={() => this.props.navigation.pop()} />
+          <Appbar.Content title="Cadastro" />
+        </Appbar.Header>
         <TextInput
           label="Usuario"
           style={styles.textContainer}
