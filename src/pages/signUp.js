@@ -6,6 +6,7 @@ import QueryString from "query-string";
 
 import styles from "../config/styles";
 import api from "../services/api";
+import Axios from "axios";
 
 export default class Cadastro extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -50,12 +51,15 @@ export default class Cadastro extends Component {
       this.state.senha.length === 0 ||
       this.state.confSenha.length === 0
     ) {
-      this.setState({ error: "Preencha todos os campos para continuar!" });
+      this.setState(
+        { error: "Preencha todos os campos para continuar!" },
+        () => false
+      );
     } else {
       try {
-        await api.post("/cadastro", {
-          nome: "this.state.usuario",
-          senha: "this.state.senha"
+        await Axios.post("http://tormenta.herokuapp.com/cadastro", {
+          nome: this.state.usuario,
+          senha: this.state.senha
         });
 
         this.setState({
@@ -73,22 +77,7 @@ export default class Cadastro extends Component {
       }
     }
   };
-  /*
-    await fetch("http://127.0.0.1:5000/cadastro", {
-      method: "POST",
-      headers: {
-        accept: "appcation/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        nome: this.state.usuario,
-        senha: this.state.senha
-      })
-    });
-    console.log(fetch);
-    this.props.navigation.navigate("Home");
-  };
-  */
+  
   goToLogin = () => {
     const resetAction = StackActions.reset({
       index: 0,
