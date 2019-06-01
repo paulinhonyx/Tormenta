@@ -10,7 +10,7 @@ export default class vantEDesv extends Component {
   });
 
   state = {
-    acrobaciasTotal: "55",
+    acrobaciasTotal: "",
     acrobacias1: "",
     acrobacias2: "",
     acrobacias3: "",
