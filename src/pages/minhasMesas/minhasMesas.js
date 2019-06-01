@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import { View, ScrollView, FlatList, ActivityIndicator } from "react-native";
 import { Appbar, Text } from "react-native-paper";
 
-import styles from "../config/styles";
-import Cards from "../components/Cards";
+import styles from "../../config/styles";
+import Cards from "../../components/Cards";
 
-export default class Perfil extends Component {
+export default class minhasMesas extends Component {
   static navigationOptions = ({ navigation }) => ({
     header: (
       <Appbar.Header style={styles.header}>

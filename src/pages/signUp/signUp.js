@@ -2,13 +2,11 @@ import React, { Component } from "react";
 import { View } from "react-native";
 import { Appbar, TextInput, Button, Text } from "react-native-paper";
 import PropTypes from "prop-types";
-import QueryString from "query-string";
-
-import styles from "../config/styles";
-import api from "../services/api";
 import Axios from "axios";
 
-export default class Cadastro extends Component {
+import styles from "../config/styles";
+
+export default class signUp extends Component {
   static navigationOptions = ({ navigation }) => ({
     header: (
       <Appbar.Header style={styles.header}>
@@ -77,7 +75,7 @@ export default class Cadastro extends Component {
       }
     }
   };
-  
+
   goToLogin = () => {
     const resetAction = StackActions.reset({
       index: 0,
