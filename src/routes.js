@@ -61,7 +61,7 @@ const Routes = createStackNavigator(
     equipamento: { screen: equipamento }
   },
   {
-    initialRouteName: "equipamento",
+    initialRouteName: "SignIn",
     headerMode: "none"
   }
 );
