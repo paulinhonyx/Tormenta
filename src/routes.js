@@ -61,17 +61,7 @@ const Routes = createStackNavigator(
   }
 );
 const App = createAppContainer(Routes);
-/*
-const Routes = createStackNavigator({
-  SignIn,
-  signUp,
-  Home,
-  minhasMesas,
-  criarMesa,
-  procurarMesa,
-  vantEDesv
-});
-*/
+
 
 export default () => {
   return (
