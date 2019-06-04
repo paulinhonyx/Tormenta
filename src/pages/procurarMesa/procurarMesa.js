@@ -75,36 +75,12 @@ export default class procurarMesa extends Component {
       );
     }
 
-<<<<<<< HEAD
-    return (
-      <ScrollView>
-        <Appbar.Header style={styles.header}>
-          <Appbar.BackAction onPress={() => this.props.navigation.pop()} />
-          <Appbar.Content title="Procurar Mesa" />
-          <Appbar.Action icon="refresh" onPress={() => this._onRefresh} />
-        </Appbar.Header>
-        <Text style={styles.nomeCodigoText}>Mesas:</Text>
-
-        <View style={styles.procurarCard}>
-          <FlatList
-            data={this.state.items}
-            keyExtractor={(item, index) => index.toString()}
-            renderItem={({ item }) => (
-              <TouchableOpacity
-                onPress={() => this.props.navigation.push("vantEDesv")}
-              >
-                <Cards item={item} />
-              </TouchableOpacity>
-            )}
-          />
-=======
     if (this.state.loading) {
       return (
         <View
           style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
         >
           <ActivityIndicator />
->>>>>>> b9b6493f1d47840606f1340b27c3b63490446eed
         </View>
       );
     } else {
