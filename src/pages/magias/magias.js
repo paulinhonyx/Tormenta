@@ -22,7 +22,7 @@ export default class magias extends Component {
     item10: "",
     item11: "",
     item12: "",
-    prox: "",
+    total: "",
     atual: ""
   };
 
@@ -46,16 +46,16 @@ export default class magias extends Component {
               <Text>Pontos de Magia</Text>
             </View>
             <View>
-              <Text>Prox. Nivel</Text>
-              <Text>Exp. Atual</Text>
+              <Text>Total</Text>
+              <Text>Atual</Text>
             </View>
             <View>
               <View>
                 <Text>PM</Text>
               </View>
               <TextInput
-                value={this.state.prox}
-                onChangeText={prox => this.setState({ prox })}
+                value={this.state.total}
+                onChangeText={total => this.setState({ total })}
               />
             </View>
             <View>
