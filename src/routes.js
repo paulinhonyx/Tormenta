@@ -16,6 +16,7 @@ import criarMesa from "./pages/criarMesa/criarMesa";
 import procurarMesa from "./pages/procurarMesa/procurarMesa";
 import vantEDesv from "./pages/vantEDesv/vantEDesv";
 import fichaPrinc from "./pages/ficha/fichaPrinc";
+import tiposDeDano from "./pages/tiposDeDano/tiposDeDano";
 
 const DrawerNavigator = createDrawerNavigator(
   {
@@ -53,7 +54,8 @@ const Routes = createStackNavigator(
     criarMesa: { screen: criarMesa },
     procurarMesa: { screen: procurarMesa },
     vantEDesv: { screen: vantEDesv },
-    fichaPrinc: { screen: fichaPrinc }
+    fichaPrinc: { screen: fichaPrinc },
+    tiposDeDano: { screen: tiposDeDano }
   },
   {
     initialRouteName: "SignIn",
