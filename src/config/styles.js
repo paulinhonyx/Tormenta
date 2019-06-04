@@ -184,6 +184,21 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     marginRight: 5,
     alignItems: "center"
+  },
+  textContainer6: {
+    marginTop: 15,
+    width: 300,
+    marginLeft: 20,
+    backgroundColor: "#fff",
+    marginBottom: 20
+  },
+
+  textContainer7: {
+    marginTop: 15,
+    width: 150,
+    marginLeft: 20,
+    backgroundColor: "#fff",
+    marginBottom: 20
   }
 });
 
