@@ -18,6 +18,7 @@ import vantEDesv from "./pages/vantEDesv/vantEDesv";
 import fichaPrinc from "./pages/ficha/fichaPrinc";
 import tiposDeDano from "./pages/tiposDeDano/tiposDeDano";
 import equipamento from "./pages/equipamento/equipamento";
+import magias from "./pages/magias/magias";
 
 const DrawerNavigator = createDrawerNavigator(
   {
@@ -58,7 +59,8 @@ const Routes = createStackNavigator(
     vantEDesv: { screen: vantEDesv },
     fichaPrinc: { screen: DrawerNavigator },
     tiposDeDano: { screen: tiposDeDano },
-    equipamento: { screen: equipamento }
+    equipamento: { screen: equipamento },
+    magias: { screen: magias }
   },
   {
     initialRouteName: "SignIn",
