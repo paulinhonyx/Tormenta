@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, ScrollView, Text, Picker } from "react-native";
+import { View, ScrollView } from "react-native";
 import {
   Appbar,
   TextInput,
@@ -61,13 +61,6 @@ export default class criarMesa extends Component {
             >
               Criar
             </Button>
-            <Button
-              style={styles.cancelar}
-              mode="contained"
-              onPress={() => this.setState({ cancelar: true })}
-            >
-              Cancelar
-            </Button>
             <Portal>
               <Dialog visible={this.state.criar} onDismiss={this._hidecriar}>
                 <Dialog.Content>
@@ -80,7 +73,7 @@ export default class criarMesa extends Component {
                   <Button
                     onPress={() => this.props.navigation.navigate("fichaPrinc")}
                   >
-                    Suave Japão
+                    Ok, obrigado.
                   </Button>
                 </Dialog.Actions>
               </Dialog>

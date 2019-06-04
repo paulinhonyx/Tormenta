@@ -110,7 +110,7 @@ export default class vantEDesv extends Component {
     return (
       <ScrollView>
         <Appbar.Header style={styles.header}>
-          <Appbar.BackAction onPress={() => navigation.pop()} />
+          <Appbar.BackAction onPress={() => this.props.navigation.goBack()} />
           <Appbar.Content title="Perícias" />
         </Appbar.Header>
         <View style={styles.periciaContent}>
@@ -119,7 +119,7 @@ export default class vantEDesv extends Component {
             style={{
               flexDirection: "row",
               justifyContent: "center",
-              marginTop: 5
+              marginTop: 1
             }}
           >
             <Text
