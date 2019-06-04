@@ -8,12 +8,20 @@ export default class SideBar extends Component {
     return (
       <Drawer.Section style={styles.drawer}>
         <Drawer.Item
-          label="First Item"
-          onPress={() => this.props.navigation.navigate("signUp")}
+          label="Principal"
+          onPress={() => this.props.navigation.navigate("fichaPrinc")}
         />
         <Drawer.Item
-          label="Second Item"
-          onPress={() => this.props.navigation.navigate("minhasMesas")}
+          label="Magias"
+          onPress={() => this.props.navigation.navigate("magias")}
+        />
+        <Drawer.Item
+          label="itens"
+          onPress={() => this.props.navigation.navigate("equipamento")}
+        />
+        <Drawer.Item
+          label="Tipos de Dano"
+          onPress={() => this.props.navigation.navigate("tiposDeDano")}
         />
       </Drawer.Section>
     );

@@ -22,14 +22,10 @@ import magias from "./pages/magias/magias";
 
 const DrawerNavigator = createDrawerNavigator(
   {
-    minhasMesas: { screen: minhasMesas },
-    procurarMesa: { screen: procurarMesa },
-    criarMesa: { screen: criarMesa },
-    procurarMesa: { screen: procurarMesa },
-    vantEDesv: { screen: vantEDesv },
     fichaPrinc: { screen: fichaPrinc },
     tiposDeDano: { screen: tiposDeDano },
-    equipamento: { screen: equipamento }
+    equipamento: { screen: equipamento },
+    magias: { screen: magias }
   },
   {
     drawerWidth: 200,
@@ -55,8 +51,6 @@ const Routes = createStackNavigator(
     minhasMesas: { screen: minhasMesas },
     procurarMesa: { screen: procurarMesa },
     criarMesa: { screen: criarMesa },
-    procurarMesa: { screen: procurarMesa },
-    vantEDesv: { screen: vantEDesv },
     fichaPrinc: { screen: DrawerNavigator },
     tiposDeDano: { screen: tiposDeDano },
     equipamento: { screen: equipamento },

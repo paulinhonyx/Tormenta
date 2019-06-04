@@ -1,12 +1,6 @@
 import React, { Component } from "react";
-import {
-  View,
-  ScrollView,
-  FlatList,
-  ActivityIndicator,
-  TouchableOpacity
-} from "react-native";
-import { Appbar, Text } from "react-native-paper";
+import { View, ScrollView, FlatList, TouchableOpacity } from "react-native";
+import { Appbar, Text, ActivityIndicator } from "react-native-paper";
 
 import styles from "../../config/styles";
 import Cards from "../../components/Cards";
@@ -42,7 +36,7 @@ export default class minhasMesas extends Component {
       <ScrollView>
         <Appbar.Header style={styles.header}>
           <Appbar.BackAction onPress={() => this.props.navigation.goBack()} />
-          <Appbar.Content title="Perfil" />
+          <Appbar.Content title="Minhas mesas" />
         </Appbar.Header>
         <Text>Mesas: </Text>
         <View style={styles.procurarCard}>
@@ -51,7 +45,7 @@ export default class minhasMesas extends Component {
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item }) => (
               <TouchableOpacity
-                onPress={() => this.props.navigation.push("vantEDesv")}
+                onPress={() => this.props.navigation.navigate("fichaPrinc")}
               >
                 <Cards item={item} />
               </TouchableOpacity>

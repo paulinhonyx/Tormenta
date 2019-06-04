@@ -99,7 +99,7 @@ export default class procurarMesa extends Component {
               extraData={this.state}
               renderItem={({ item }) => (
                 <TouchableOpacity
-                  onPress={() => this.props.navigation.push("Pericias")}
+                  onPress={() => this.props.navigation.navigate("fichaPrinc")}
                 >
                   <Cards item={item} />
                 </TouchableOpacity>
