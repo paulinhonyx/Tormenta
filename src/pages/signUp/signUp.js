@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { View } from "react-native";
 import { Appbar, TextInput, Button, Text } from "react-native-paper";
 import PropTypes from "prop-types";
+import Axios from "axios";
 
 import styles from "../../config/styles";
-import api from "../../services/api";
 
 export default class signUp extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -19,14 +19,17 @@ export default class signUp extends Component {
     }).isRequired
   };
 
-  state = {
-    usuario: "katchaca",
-    senha: "12345678 ",
-    confSenha: "12345678",
-    visible: false,
-    error: "",
-    success: ""
-  };
+  constructor() {
+    super();
+    this.state = {
+      usuario: "",
+      senha: "",
+      confSenha: "",
+      visible: false,
+      error: "",
+      success: ""
+    };
+  }
   _showDialog = () => this.setState({ visible: true });
 
   _hideDialog = () => this.setState({ visible: false });
@@ -35,7 +38,7 @@ export default class signUp extends Component {
 
   senhaChange = senha => this.setState({ senha });
 
-  singUpPress = async () => {
+  handleSignUpPress = async () => {
     if (
       this.state.usuario.length === 0 ||
       this.state.senha.length === 0 ||
@@ -47,18 +50,18 @@ export default class signUp extends Component {
       );
     } else {
       try {
-        await api.post("/cadastro", {
-          nome: "katchaca",
-          senha: "12345678 "
+        await Axios.post("http://tormenta.herokuapp.com/cadastro", {
+          nome: this.state.usuario,
+          senha: this.state.senha
         });
-        console.log(api);
         this.setState({
           success: "Conta criada com sucesso! Redirecionando para o login",
           error: ""
         });
+
         this.props.navigation.navigate("Home");
-        //setTimeout(this.goToLogin, 500);
-      } catch (_err) {
+      } catch (error) {
+        console.log(error);
         this.setState({
           error:
             "Houve um problema com o cadastro, verifique os dados preenchidos!"
@@ -79,7 +82,7 @@ export default class signUp extends Component {
     return (
       <View>
         <Appbar.Header style={styles.header}>
-          <Appbar.BackAction onPress={() => this.props.navigation.pop()} />
+          <Appbar.BackAction onPress={() => this.props.navigation.goBack()} />
           <Appbar.Content title="Cadastro" />
         </Appbar.Header>
         <TextInput
@@ -108,7 +111,7 @@ export default class signUp extends Component {
         <Button
           style={styles.cadastrar}
           mode="contained"
-          onPress={this.singUpPress}
+          onPress={this.handleSignUpPress}
         >
           Cadastrar
         </Button>

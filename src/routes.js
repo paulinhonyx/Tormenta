@@ -62,7 +62,6 @@ const Routes = createStackNavigator(
 );
 const App = createAppContainer(Routes);
 
-
 export default () => {
   return (
     <PaperProvider>

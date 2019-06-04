@@ -86,6 +86,10 @@ export default class procurarMesa extends Component {
     } else {
       return (
         <ScrollView>
+          <Appbar.Header style={styles.header}>
+            <Appbar.BackAction onPress={() => this.props.navigation.goBack()} />
+            <Appbar.Content title="Procurar mesas" />
+          </Appbar.Header>
           <Text style={styles.nomeCodigoText}>Mesas:</Text>
 
           <View style={styles.procurarCard}>

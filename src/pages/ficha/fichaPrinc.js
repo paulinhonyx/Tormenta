@@ -18,7 +18,7 @@ export default class fichaPrinc extends Component {
     return (
       <ScrollView>
         <Appbar.Header style={styles.header}>
-          <Appbar.BackAction onPress={() => this.props.navigation.pop()} />
+          <Appbar.BackAction onPress={() => this.props.navigation.goBack()} />
           <Appbar.Content title="Principal" />
         </Appbar.Header>
         <View>

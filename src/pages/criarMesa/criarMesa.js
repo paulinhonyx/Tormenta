@@ -35,7 +35,7 @@ export default class criarMesa extends Component {
     return (
       <ScrollView>
         <Appbar.Header style={styles.header}>
-          <Appbar.BackAction onPress={() => this.props.navigation.pop()} />
+          <Appbar.BackAction onPress={() => this.props.navigation.goBack()} />
           <Appbar.Content title="Criar Mesa" />
         </Appbar.Header>
         <View>

@@ -12,7 +12,7 @@ export default class Home extends Component {
     return (
       <View>
         <Appbar.Header style={styles.header}>
-          <Appbar.BackAction onPress={() => this.props.navigation.pop()} />
+          <Appbar.BackAction onPress={() => this.props.navigation.goBack()} />
           <Appbar.Content title="Principal" />
         </Appbar.Header>
         <Button
