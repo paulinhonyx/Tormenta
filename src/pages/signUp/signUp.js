@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { View } from "react-native";
 import { Appbar, TextInput, Button, Text } from "react-native-paper";
-import PropTypes from "prop-types";
+import { StackActions, NavigationActions } from "react-navigation";
+
 import Axios from "axios";
 
 import styles from "../../config/styles";
@@ -10,14 +11,6 @@ export default class signUp extends Component {
   static navigationOptions = ({ navigation }) => ({
     header: null
   });
-
-  static propTypes = {
-    navigation: PropTypes.shape({
-      navigate: PropTypes.func,
-      dispatch: PropTypes.func,
-      goBack: PropTypes.func
-    }).isRequired
-  };
 
   constructor() {
     super();
@@ -58,8 +51,16 @@ export default class signUp extends Component {
           success: "Conta criada com sucesso! Redirecionando para o login",
           error: ""
         });
-
-        this.props.navigation.navigate("Home");
+        const resetAction = StackActions.reset({
+          index: 0,
+          actions: [
+            NavigationActions.navigate({
+              routeName: "SignIn"
+            })
+          ]
+        });
+        console.log(resetAction);
+        this.props.navigation.dispatch(resetAction);
       } catch (error) {
         console.log(error);
         this.setState({
