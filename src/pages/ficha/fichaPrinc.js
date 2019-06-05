@@ -34,14 +34,27 @@ export default class fichaPrinc extends Component {
   };
 
   componentDidMount = async () => {
-    await Axios.get(
-      `http://5ce16d028ad3c700145b7c26.mockapi.io/users/1/dados`
-    ).then(res => {
-      const persons = res.data;
-      this.setState({ itens: persons });
-      console.log(this.state.nomeJogador);
-      console.log(this.state.itens);
-    });
+    if (this.state.itens.length === 0) {
+      await Axios.get(`http://tormenta.herokuapp.com/personagem/1`).then(
+        res => {
+          const persons = res.data;
+          this.setState({ itens: persons });
+          console.log(this.state.nomeJogador);
+          console.log(this.state.itens);
+        }
+      );
+    } else {
+      await Axios.post("http://tormenta.herokuapp.com/personagem/criar", {
+        nome: this.state.nomeJogador,
+        senha: this.state.senha
+      });
+      this.setState({
+        success: "Conta criada com sucesso! Redirecionando para o login",
+        error: ""
+      });
+
+      this.props.navigation.navigate("SignIn");
+    }
   };
 
   render() {
