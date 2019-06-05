@@ -56,13 +56,11 @@ export default class signUp extends Component {
           actions: [
             NavigationActions.navigate({
               routeName: "SignIn"
-              //params: { token: response.data.token }
             })
           ]
         });
         console.log(resetAction);
         this.props.navigation.dispatch(resetAction);
-        //this.props.navigation.navigate("SignIn");
       } catch (error) {
         console.log(error);
         this.setState({
