@@ -3,37 +3,53 @@ import { View, ScrollView } from "react-native";
 import { Appbar, Text, TextInput } from "react-native-paper";
 
 import styles from "../../config/styles";
+import Axios from "axios";
 
 export default class fichaPrinc extends Component {
   static navigationOptions = ({ navigation }) => ({
     header: null
   });
 
-  state = {
-    nomeJogador: "",
-    pv: "",
-    pontosDeAcao: "",
-    atuais: "",
-    xpProx: "",
-    xpAtual: "",
-    forca: "",
-    destreza: "",
-    constituicao: "",
-    inteligencia: "",
-    sabedoria: "",
-    carisma: ""
-  };
+  constructor() {
+    super();
+    this.state = {
+      nomeJogador: "",
+      pv: "",
+      pontosDeAcao: "",
+      atuais: "",
+      xpProx: "",
+      xpAtual: "",
+      forca: "",
+      destreza: "",
+      constituicao: "",
+      inteligencia: "",
+      sabedoria: "",
+      carisma: "",
+      itens: []
+    };
+  }
 
   changeNome = text => {
     this.setState({ nome: text });
   };
+
+  componentDidMount = async () => {
+    await Axios.get(
+      `http://5ce16d028ad3c700145b7c26.mockapi.io/users/1/dados`
+    ).then(res => {
+      const persons = res.data;
+      this.setState({ itens: persons });
+      console.log(this.state.nomeJogador);
+      console.log(this.state.itens);
+    });
+  };
+
   render() {
     return (
       <ScrollView>
         <Appbar.Header style={styles.header}>
           <Appbar.BackAction onPress={() => this.props.navigation.pop()} />
           <Appbar.Content style={styles.text} title="Jogador" />
-          <Appbar.Action icon="dehaze" />
         </Appbar.Header>
         <View>
           <TextInput
@@ -148,4 +164,9 @@ export default class fichaPrinc extends Component {
       </ScrollView>
     );
   }
+  _get = async endpoint => {
+    const res = await fetch(endpoint);
+    const data = await res.json();
+    return data;
+  };
 }

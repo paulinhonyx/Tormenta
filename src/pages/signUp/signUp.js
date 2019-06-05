@@ -59,7 +59,7 @@ export default class signUp extends Component {
           error: ""
         });
 
-        this.props.navigation.navigate("Home");
+        this.props.navigation.navigate("SignIn");
       } catch (error) {
         console.log(error);
         this.setState({

@@ -40,7 +40,17 @@ export default class SignIn extends Component {
             senha: this.state.senha
           }
         );
-
+        /*
+        const resetAction = StackActions.reset({
+          index: 0,
+          actions: [
+            NavigationActions.navigate({
+              routeName: "Main",
+              params: { token: response.data.token }
+            })
+          ]
+        });
+*/
         console.log(response);
         this.props.navigation.navigate("Home");
       } catch (_err) {

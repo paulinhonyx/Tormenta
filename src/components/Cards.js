@@ -14,8 +14,7 @@ export default class Cards extends Component {
             source={{ uri: this.props.item.image }}
           />
           <View style={{ marginLeft: 10 }}>
-            <Title>{this.props.item.title}</Title>
-            <Text>{this.props.item.description}</Text>
+            <Title>{this.props.item.name}</Title>
           </View>
         </View>
       </View>

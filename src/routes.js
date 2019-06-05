@@ -57,7 +57,7 @@ const Routes = createStackNavigator(
     magias: { screen: magias }
   },
   {
-    initialRouteName: "SignIn",
+    initialRouteName: "fichaPrinc",
     headerMode: "none"
   }
 );
